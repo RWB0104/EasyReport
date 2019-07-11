@@ -58,6 +58,7 @@ Partial Class Main
         Me.ButtonShoot = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ButtonOpen = New System.Windows.Forms.Button()
+        Me.LabelDev = New System.Windows.Forms.Label()
         Me.GroupBoxSend.SuspendLayout()
         Me.GroupBoxCC.SuspendLayout()
         Me.GroupBoxText.SuspendLayout()
@@ -261,7 +262,7 @@ Partial Class Main
         Me.GroupBoxGmail.Controls.Add(Me.LabelID)
         Me.GroupBoxGmail.Controls.Add(Me.TextBoxPW)
         Me.GroupBoxGmail.Controls.Add(Me.TextBoxID)
-        Me.GroupBoxGmail.Location = New System.Drawing.Point(19, 359)
+        Me.GroupBoxGmail.Location = New System.Drawing.Point(19, 351)
         Me.GroupBoxGmail.Name = "GroupBoxGmail"
         Me.GroupBoxGmail.Size = New System.Drawing.Size(266, 81)
         Me.GroupBoxGmail.TabIndex = 19
@@ -316,7 +317,7 @@ Partial Class Main
         'ButtonCls
         '
         Me.ButtonCls.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ButtonCls.Location = New System.Drawing.Point(397, 426)
+        Me.ButtonCls.Location = New System.Drawing.Point(397, 409)
         Me.ButtonCls.Name = "ButtonCls"
         Me.ButtonCls.Size = New System.Drawing.Size(75, 23)
         Me.ButtonCls.TabIndex = 20
@@ -372,7 +373,7 @@ Partial Class Main
         'ButtonShoot
         '
         Me.ButtonShoot.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ButtonShoot.Location = New System.Drawing.Point(396, 322)
+        Me.ButtonShoot.Location = New System.Drawing.Point(304, 409)
         Me.ButtonShoot.Name = "ButtonShoot"
         Me.ButtonShoot.Size = New System.Drawing.Size(75, 23)
         Me.ButtonShoot.TabIndex = 27
@@ -382,7 +383,7 @@ Partial Class Main
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.EasyReport.My.Resources.Resources.Form_Logo
-        Me.PictureBox1.Location = New System.Drawing.Point(362, 5)
+        Me.PictureBox1.Location = New System.Drawing.Point(362, 8)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(121, 36)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -399,12 +400,23 @@ Partial Class Main
         Me.ButtonOpen.Text = "O"
         Me.ButtonOpen.UseVisualStyleBackColor = True
         '
+        'LabelDev
+        '
+        Me.LabelDev.AutoSize = True
+        Me.LabelDev.Location = New System.Drawing.Point(188, 444)
+        Me.LabelDev.Name = "LabelDev"
+        Me.LabelDev.Size = New System.Drawing.Size(112, 12)
+        Me.LabelDev.TabIndex = 37
+        Me.LabelDev.Text = "Developed by RWB"
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(484, 461)
+        Me.Controls.Add(Me.LabelDev)
         Me.Controls.Add(Me.ButtonOpen)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.ButtonShoot)
@@ -472,4 +484,5 @@ Partial Class Main
     Friend WithEvents ButtonShoot As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents ButtonOpen As Button
+    Friend WithEvents LabelDev As Label
 End Class
