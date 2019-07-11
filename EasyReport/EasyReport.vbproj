@@ -48,7 +48,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>그림1.ico</ApplicationIcon>
+    <ApplicationIcon>EasyReport.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -188,7 +188,7 @@
     <None Include="Resources\Form_Logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="그림1.ico" />
+    <Content Include="EasyReport.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
