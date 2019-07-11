@@ -237,11 +237,11 @@ Partial Class Main
         '
         'TextBoxTxt
         '
-        Me.TextBoxTxt.Location = New System.Drawing.Point(14, 22)
+        Me.TextBoxTxt.Location = New System.Drawing.Point(14, 20)
         Me.TextBoxTxt.Multiline = True
         Me.TextBoxTxt.Name = "TextBoxTxt"
         Me.TextBoxTxt.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TextBoxTxt.Size = New System.Drawing.Size(138, 213)
+        Me.TextBoxTxt.Size = New System.Drawing.Size(138, 219)
         Me.TextBoxTxt.TabIndex = 17
         Me.TextBoxTxt.WordWrap = False
         '
@@ -250,7 +250,7 @@ Partial Class Main
         Me.GroupBoxText.Controls.Add(Me.TextBoxTxt)
         Me.GroupBoxText.Location = New System.Drawing.Point(304, 67)
         Me.GroupBoxText.Name = "GroupBoxText"
-        Me.GroupBoxText.Size = New System.Drawing.Size(167, 249)
+        Me.GroupBoxText.Size = New System.Drawing.Size(167, 252)
         Me.GroupBoxText.TabIndex = 18
         Me.GroupBoxText.TabStop = False
         Me.GroupBoxText.Text = "추가 내용"
@@ -305,7 +305,6 @@ Partial Class Main
         Me.TextBoxPW.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TextBoxPW.Size = New System.Drawing.Size(137, 21)
         Me.TextBoxPW.TabIndex = 1
-        Me.TextBoxPW.UseSystemPasswordChar = True
         '
         'TextBoxID
         '
@@ -377,7 +376,7 @@ Partial Class Main
         Me.ButtonShoot.Name = "ButtonShoot"
         Me.ButtonShoot.Size = New System.Drawing.Size(75, 23)
         Me.ButtonShoot.TabIndex = 27
-        Me.ButtonShoot.Text = "Woop!"
+        Me.ButtonShoot.Text = "Auto"
         Me.ButtonShoot.UseVisualStyleBackColor = True
         '
         'PictureBox1
@@ -403,9 +402,10 @@ Partial Class Main
         'LabelDev
         '
         Me.LabelDev.AutoSize = True
+        Me.LabelDev.Font = New System.Drawing.Font("맑은 고딕", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
         Me.LabelDev.Location = New System.Drawing.Point(188, 444)
         Me.LabelDev.Name = "LabelDev"
-        Me.LabelDev.Size = New System.Drawing.Size(112, 12)
+        Me.LabelDev.Size = New System.Drawing.Size(110, 15)
         Me.LabelDev.TabIndex = 37
         Me.LabelDev.Text = "Developed by RWB"
         '
