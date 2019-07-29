@@ -1,6 +1,10 @@
 # EasyReport  
 EasyReport Development  
 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/50317129/62029819-97f9bc00-b21e-11e9-87e7-28c3dafc3951.png" alt="EasyReport" title="EasyReport">
+</p>
+
 일일이 쓰고 보내기 귀찮아서 직접 만든 보고서 메일 자동 작성 및 발송 프로그램  
 
 ## EasyReport 2.0.0 RELEASE 
