@@ -7,11 +7,11 @@ EasyReport Development
 
 2019.07.29 월요일 Update
 
-+ 설정 xml파일 추가
-- 주소록, Auto의 설정을 소스가 아닌 xml에서 읽어오기 때문에 사용자 단계에서의 수정이 가능하도록 수정
++ 설정 xml파일 추가  
+주소록, Auto의 설정을 소스가 아닌 xml에서 읽어오기 때문에 사용자 단계에서의 수정이 가능하도록 수정
 
-+ 일부 UI 개선
-- Control 위치와 크기 조절로 일부 UI의 가독성 개선
++ 일부 UI 개선  
+Control 위치와 크기 조절로 일부 UI의 가독성 개선
 
 개발언어 : `Visual Basic`  
 
