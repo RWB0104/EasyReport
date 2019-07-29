@@ -9,11 +9,11 @@ Imports System.Runtime.InteropServices
 ' 어셈블리 특성 값을 검토합니다.
 
 <Assembly: AssemblyTitle("EasyReport")>
-<Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyDescription("일일업무 보고서 메일 간편전송 애플리케이션")>
+<Assembly: AssemblyCompany("(주)한국공간정보통신. KSIC.")>
 <Assembly: AssemblyProduct("EasyReport")>
-<Assembly: AssemblyCopyright("Copyright ©  2019")>
-<Assembly: AssemblyTrademark("")>
+<Assembly: AssemblyCopyright("Copyright © RWB.  2019")>
+<Assembly: AssemblyTrademark("EasyReport")>
 
 <Assembly: ComVisible(False)>
 
@@ -32,4 +32,4 @@ Imports System.Runtime.InteropServices
 ' <Assembly: AssemblyVersion("1.0.*")>
 
 <Assembly: AssemblyVersion("1.0.0.0")>
-<Assembly: AssemblyFileVersion("1.0.0.0")>
+<Assembly: AssemblyFileVersion("2.0.0.0")>

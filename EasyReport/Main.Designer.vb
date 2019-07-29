@@ -213,7 +213,7 @@ Partial Class Main
         Me.GroupBoxSend.Controls.Add(Me.LabelSend3)
         Me.GroupBoxSend.Controls.Add(Me.ComboBoxSend1)
         Me.GroupBoxSend.Controls.Add(Me.ComboBoxSend3)
-        Me.GroupBoxSend.Location = New System.Drawing.Point(19, 67)
+        Me.GroupBoxSend.Location = New System.Drawing.Point(19, 61)
         Me.GroupBoxSend.Name = "GroupBoxSend"
         Me.GroupBoxSend.Size = New System.Drawing.Size(266, 109)
         Me.GroupBoxSend.TabIndex = 15
@@ -228,7 +228,7 @@ Partial Class Main
         Me.GroupBoxCC.Controls.Add(Me.LabelCC1)
         Me.GroupBoxCC.Controls.Add(Me.LabelCC2)
         Me.GroupBoxCC.Controls.Add(Me.ComboBoxCC3)
-        Me.GroupBoxCC.Location = New System.Drawing.Point(19, 182)
+        Me.GroupBoxCC.Location = New System.Drawing.Point(19, 184)
         Me.GroupBoxCC.Name = "GroupBoxCC"
         Me.GroupBoxCC.Size = New System.Drawing.Size(266, 109)
         Me.GroupBoxCC.TabIndex = 16
@@ -241,16 +241,16 @@ Partial Class Main
         Me.TextBoxTxt.Multiline = True
         Me.TextBoxTxt.Name = "TextBoxTxt"
         Me.TextBoxTxt.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TextBoxTxt.Size = New System.Drawing.Size(138, 219)
+        Me.TextBoxTxt.Size = New System.Drawing.Size(138, 194)
         Me.TextBoxTxt.TabIndex = 17
         Me.TextBoxTxt.WordWrap = False
         '
         'GroupBoxText
         '
         Me.GroupBoxText.Controls.Add(Me.TextBoxTxt)
-        Me.GroupBoxText.Location = New System.Drawing.Point(304, 67)
+        Me.GroupBoxText.Location = New System.Drawing.Point(304, 60)
         Me.GroupBoxText.Name = "GroupBoxText"
-        Me.GroupBoxText.Size = New System.Drawing.Size(167, 252)
+        Me.GroupBoxText.Size = New System.Drawing.Size(167, 233)
         Me.GroupBoxText.TabIndex = 18
         Me.GroupBoxText.TabStop = False
         Me.GroupBoxText.Text = "추가 내용"
@@ -283,7 +283,7 @@ Partial Class Main
         'LabelPW
         '
         Me.LabelPW.AutoSize = True
-        Me.LabelPW.Location = New System.Drawing.Point(6, 53)
+        Me.LabelPW.Location = New System.Drawing.Point(6, 52)
         Me.LabelPW.Name = "LabelPW"
         Me.LabelPW.Size = New System.Drawing.Size(23, 12)
         Me.LabelPW.TabIndex = 3
@@ -292,7 +292,7 @@ Partial Class Main
         'LabelID
         '
         Me.LabelID.AutoSize = True
-        Me.LabelID.Location = New System.Drawing.Point(9, 26)
+        Me.LabelID.Location = New System.Drawing.Point(11, 24)
         Me.LabelID.Name = "LabelID"
         Me.LabelID.Size = New System.Drawing.Size(16, 12)
         Me.LabelID.TabIndex = 2
@@ -325,15 +325,15 @@ Partial Class Main
         '
         'TextBoxPath
         '
-        Me.TextBoxPath.Location = New System.Drawing.Point(76, 297)
+        Me.TextBoxPath.Location = New System.Drawing.Point(76, 311)
         Me.TextBoxPath.Name = "TextBoxPath"
-        Me.TextBoxPath.Size = New System.Drawing.Size(145, 21)
+        Me.TextBoxPath.Size = New System.Drawing.Size(331, 21)
         Me.TextBoxPath.TabIndex = 21
         '
         'LabelFile
         '
         Me.LabelFile.AutoSize = True
-        Me.LabelFile.Location = New System.Drawing.Point(17, 302)
+        Me.LabelFile.Location = New System.Drawing.Point(17, 315)
         Me.LabelFile.Name = "LabelFile"
         Me.LabelFile.Size = New System.Drawing.Size(53, 12)
         Me.LabelFile.TabIndex = 22
@@ -342,7 +342,7 @@ Partial Class Main
         'ButtonFile
         '
         Me.ButtonFile.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ButtonFile.Location = New System.Drawing.Point(227, 296)
+        Me.ButtonFile.Location = New System.Drawing.Point(413, 310)
         Me.ButtonFile.Name = "ButtonFile"
         Me.ButtonFile.Size = New System.Drawing.Size(26, 23)
         Me.ButtonFile.TabIndex = 23
@@ -392,7 +392,7 @@ Partial Class Main
         'ButtonOpen
         '
         Me.ButtonOpen.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ButtonOpen.Location = New System.Drawing.Point(259, 296)
+        Me.ButtonOpen.Location = New System.Drawing.Point(445, 310)
         Me.ButtonOpen.Name = "ButtonOpen"
         Me.ButtonOpen.Size = New System.Drawing.Size(26, 23)
         Me.ButtonOpen.TabIndex = 36
@@ -403,7 +403,7 @@ Partial Class Main
         '
         Me.LabelDev.AutoSize = True
         Me.LabelDev.Font = New System.Drawing.Font("맑은 고딕", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.LabelDev.Location = New System.Drawing.Point(188, 444)
+        Me.LabelDev.Location = New System.Drawing.Point(188, 443)
         Me.LabelDev.Name = "LabelDev"
         Me.LabelDev.Size = New System.Drawing.Size(110, 15)
         Me.LabelDev.TabIndex = 37
