@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<autoset>
+		<send>
+			<!-- 수신자 최대 3명까지 지원 -->
+			<name1>김인현</name1>
+			<name2></name2>
+			<name3></name3>
+		</send>
+		<cc>
+			<!-- 참조 최대 3명까지 지원 -->
+			<name1>신영준</name1>
+			<name2></name2>
+			<name3></name3>
+		</cc>
+		<attach>
+			<path>\\30.30.30.150\Storage_Hub\999.NAS_PORTAL\사업본부_37번_백업\개인자료\박성진\사업본부 2019 일일업무보고서 박성진.xlsm</path>
+		</attach>
+		<account>
+			<id>psj1789@ksic.net</id>
+			<password></password>
+		</account>
+	</autoset>
+	
+	<list>
+		<!-- 인원을 변경할 경우, 아래의 양식을 추가하고 요소에 맞는 값을 입력 -->
+		<address>
+			<!-- 초기화를 위한 공백값 -->
+			<name></name>
+			<email></email>
+		</address>
+		<address>
+			<name>김인현</name>
+			<email>ihkim@ksic.net</email>
+		</address>
+		<address>
+			<name>박종택</name>
+			<email>jongtaikp@ksic.net</email>
+		</address>
+		<address>
+			<name>김영미</name>
+			<email>ymkim@ksic.net</email>
+		</address>
+		<address>
+			<name>한동훈</name>
+			<email>dhhan@ksic.net</email>
+		</address>
+		<address>
+			<name>신규선</name>
+			<email>gsshin@ksic.net</email>
+		</address>
+		<address>
+			<name>전홍규</name>
+			<email>hkjeon82@ksic.net</email>
+		</address>
+		<address>
+			<name>신영준</name>
+			<email>syj0928@ksic.net</email>
+		</address>
+		<address>
+			<name>박성진</name>
+			<email>psj1789@ksic.net</email>
+		</address>
+		<address>
+			<name>김이호</name>
+			<email>vahnchris79@ksic.net</email>
+		</address>
+		<address>
+			<name>김정배</name>
+			<email>tdcgman@ksic.net</email>
+		</address>
+		<address>
+			<name>KSIC 전체</name>
+			<email>all@ksic.net</email>
+		</address>
+		<address>
+			<name>연구소</name>
+			<email>lab@ksic.net</email>
+		</address>
+		<address>
+			<name>사업본부</name>
+			<email>business@ksic.net</email>
+		</address>
+		<address>
+			<name>경영</name>
+			<email>mts@ksic.net</email>
+		</address>
+		<address>
+			<name>영업</name>
+			<email>sales@ksic.net</email>
+		</address>
+		<address>
+			<name>기술지원</name>
+			<email>techsupport@ksic.net</email>
+		</address>
+	</list>
+</data>
