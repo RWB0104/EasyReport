@@ -59,6 +59,7 @@ Partial Class Main
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ButtonOpen = New System.Windows.Forms.Button()
         Me.LabelDev = New System.Windows.Forms.Label()
+        Me.ButtonConf = New System.Windows.Forms.Button()
         Me.GroupBoxSend.SuspendLayout()
         Me.GroupBoxCC.SuspendLayout()
         Me.GroupBoxText.SuspendLayout()
@@ -409,6 +410,15 @@ Partial Class Main
         Me.LabelDev.TabIndex = 37
         Me.LabelDev.Text = "Developed by RWB"
         '
+        'ButtonConf
+        '
+        Me.ButtonConf.Location = New System.Drawing.Point(397, 371)
+        Me.ButtonConf.Name = "ButtonConf"
+        Me.ButtonConf.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonConf.TabIndex = 38
+        Me.ButtonConf.Text = "Config"
+        Me.ButtonConf.UseVisualStyleBackColor = True
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 12.0!)
@@ -416,6 +426,7 @@ Partial Class Main
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(484, 461)
+        Me.Controls.Add(Me.ButtonConf)
         Me.Controls.Add(Me.LabelDev)
         Me.Controls.Add(Me.ButtonOpen)
         Me.Controls.Add(Me.PictureBox1)
@@ -485,4 +496,5 @@ Partial Class Main
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents ButtonOpen As Button
     Friend WithEvents LabelDev As Label
+    Friend WithEvents ButtonConf As Button
 End Class

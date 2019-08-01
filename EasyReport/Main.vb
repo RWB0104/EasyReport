@@ -29,6 +29,8 @@ Public Class Main
 
     Public Config As String = Application.StartupPath + "\EasyReportConf.xml"
 
+    Public ConfForm As New Configure()
+
     Public BF = 9
     Dim i As Integer
 
@@ -98,6 +100,14 @@ Public Class Main
                 ComboBoxCC1.Items.Add(PersonName(i))
                 ComboBoxCC2.Items.Add(PersonName(i))
                 ComboBoxCC3.Items.Add(PersonName(i))
+
+                ConfForm.ComboBoxSend1.Items.Add(PersonName(i))
+                ConfForm.ComboBoxSend2.Items.Add(PersonName(i))
+                ConfForm.ComboBoxSend3.Items.Add(PersonName(i))
+
+                ConfForm.ComboBoxCC1.Items.Add(PersonName(i))
+                ConfForm.ComboBoxCC2.Items.Add(PersonName(i))
+                ConfForm.ComboBoxCC3.Items.Add(PersonName(i))
 
             Next
 
@@ -564,6 +574,12 @@ Public Class Main
             MsgBox("올바른 보고서 경로를 입력하세요!", vbOKOnly, "Error")
 
         End If
+
+    End Sub
+
+    Private Sub ButtonConf_Click(sender As Object, e As EventArgs) Handles ButtonConf.Click
+
+        ConfForm.ShowDialog()
 
     End Sub
 
