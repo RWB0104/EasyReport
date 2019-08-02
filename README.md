@@ -20,7 +20,7 @@ Control 위치와 크기 조절로 일부 UI의 가독성 개선
 ## EasyReport 2.1.0 RELEASE  
   
 <p align="center">
-<img src="https://user-images.githubusercontent.com/50317129/62346493-4f4d4600-b531-11e9-8ca2-8b64faf87174.png" width="256" height="256" alt="EasyReport" title="EasyReport">
+<img src="https://user-images.githubusercontent.com/50317129/62346493-4f4d4600-b531-11e9-8ca2-8b64faf87174.png" width="40%" height="40%" alt="EasyReport" title="EasyReport">
 </p>
   
 2019.08.01 목요일 Update
@@ -28,7 +28,9 @@ Control 위치와 크기 조절로 일부 UI의 가독성 개선
 + 설정 xml 파일 프로그램 내에서 수정 가능하도록 관련기능 추가  
 프로그램 내부에서 Auto설정이 가능하도록 개선함으로써 사용자가 설정파일의 일부분을 더욱 쉽게 수정할 수 있도록 개선  
 입력한 설정은 Save 버튼을 누르는 즉시 반영  
-
+  
+# INFO
+  
 개발언어 : `Visual Basic`  
 
 #### 지원 OS  
