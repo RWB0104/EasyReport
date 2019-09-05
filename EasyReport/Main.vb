@@ -7,580 +7,610 @@ Imports System.IO
 
 Public Class Main
 
-    Public JooEun = True
-    Public Person(18) As String
-    Public Address(18) As String
-    Public WorkDeny = False
+	Public JooEun = True
+	Public Person(18) As String
+	Public Address(18) As String
+	Public WorkDeny = False
 
-    Public PersonName(1) As String
-    Public PersonMail(1) As String
+	Public PersonName(1) As String
+	Public PersonMail(1) As String
 
-    Public AutoSendCount As Integer
-    Public AutoCCCount As Integer
-    Public AutoSendList(2) As String
-    Public AutoCCList(2) As String
-    Public AutoAttachStr As String
-    Public AutoID As String
-    Public AutoPwd As String
+	Public AutoSendCount As Integer
+	Public AutoCCCount As Integer
+	Public AutoSendList(2) As String
+	Public AutoCCList(2) As String
+	Public AutoAttachStr As String
+	Public AutoID As String
+	Public AutoPwd As String
 
-    Public xls As New Excel.Application
-    Public xworkbook As Excel.Workbook
-    Public xworksheet As Excel.Worksheet
+	Public xls As New Excel.Application
+	Public xworkbook As Excel.Workbook
+	Public xworksheet As Excel.Worksheet
 
-    Public Config As String = Application.StartupPath + "\EasyReportConf.xml"
+	Public Config As String = Application.StartupPath + "\EasyReportConf.xml"
 
-    Public ConfForm As New Configure()
+	Public ConfForm As New Configure()
 
-    Public BF = 9
-    Dim i As Integer
+	Public BF = 9
+	Dim i As Integer
 
-    Private Sub ButtonGetDate_Click(sender As Object, e As EventArgs) Handles ButtonGetDate.Click
+	' 현재날짜 계산
+	Private Sub ButtonGetDate_Click(sender As Object, e As EventArgs) Handles ButtonGetDate.Click
 
-        TextBoxDate.Text = Format(Now, "yyyy-MM-dd")
+		TextBoxDate.Text = Format(Now, "yyyy-MM-dd")
 
-    End Sub
+	End Sub
 
-    Private Sub TextBoxDate_LostFocus(sender As Object, e As EventArgs) Handles TextBoxDate.LostFocus
+	' 날짜 검증
+	Private Sub TextBoxDate_LostFocus(sender As Object, e As EventArgs) Handles TextBoxDate.LostFocus
 
-        If Not IsDate(TextBoxDate.Text) And Not TextBoxDate.Text = "" Then
+		' 날짜 형식이 아니거나 빈 칸일 경우
+		If Not IsDate(TextBoxDate.Text) And Not TextBoxDate.Text = "" Then
 
-            MsgBox("올바른 날짜가 아닙니다.", vbOKOnly, "Error")
-            TextBoxDate.Text = ""
+			MsgBox("올바른 날짜가 아닙니다.", vbOKOnly, "Error")
+			TextBoxDate.Text = Format(Now, "yyyy-MM-dd")
 
-        End If
+		End If
 
-    End Sub
+	End Sub
 
-    Private Sub Main_Load(sender As Object, e As EventArgs) Handles Me.Load
+	Private Sub Main_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        If UBound(Process.GetProcessesByName(Process.GetCurrentProcess.ProcessName)) > 0 Then
+		' 중복 구동 방지
+		If UBound(Process.GetProcessesByName(Process.GetCurrentProcess.ProcessName)) > 0 Then
 
-            MsgBox("굳이 두 개나 킬 필요가..?", vbOKOnly, "Why?")
-            Application.Exit()
+			MsgBox("굳이 두 개나 킬 필요가..?", vbOKOnly, "Why?")
+			Application.Exit()
 
-        End If
+		End If
 
-        Dim Conf As New XmlDocument()
+		Dim Conf As New XmlDocument()
 
-        If File.Exists(Config) Then
+		' 설정파일이 있을 경우
+		If File.Exists(Config) Then
 
-            Conf.Load(Config)
+			Conf.Load(Config)
 
-            Dim nodes As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/list/address")
+			Dim nodes As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/list/address")
 
-            Dim autoSend As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/autoset/send")
-            Dim autoCC As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/autoset/cc")
-            Dim autoAttach As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/autoset/attach")
-            Dim autoAccount As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/autoset/account")
+			Dim autoSend As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/autoset/send")
+			Dim autoCC As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/autoset/cc")
+			Dim autoAttach As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/autoset/attach")
+			Dim autoAccount As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/autoset/account")
 
-            AutoSendList(0) = autoSend(0).SelectSingleNode("name1").InnerText
-            AutoSendList(1) = autoSend(0).SelectSingleNode("name2").InnerText
-            AutoSendList(2) = autoSend(0).SelectSingleNode("name3").InnerText
+			' 수신자
+			AutoSendList(0) = autoSend(0).SelectSingleNode("name1").InnerText
+			AutoSendList(1) = autoSend(0).SelectSingleNode("name2").InnerText
+			AutoSendList(2) = autoSend(0).SelectSingleNode("name3").InnerText
 
-            AutoCCList(0) = autoCC(0).SelectSingleNode("name1").InnerText
-            AutoCCList(1) = autoCC(0).SelectSingleNode("name2").InnerText
-            AutoCCList(2) = autoCC(0).SelectSingleNode("name3").InnerText
+			' 참조자
+			AutoCCList(0) = autoCC(0).SelectSingleNode("name1").InnerText
+			AutoCCList(1) = autoCC(0).SelectSingleNode("name2").InnerText
+			AutoCCList(2) = autoCC(0).SelectSingleNode("name3").InnerText
 
-            AutoAttachStr = autoAttach(0).SelectSingleNode("path").InnerText
-            AutoID = autoAccount(0).SelectSingleNode("id").InnerText
-            AutoPwd = autoAccount(0).SelectSingleNode("password").InnerText
+			' 첨부파일 경로
+			AutoAttachStr = autoAttach(0).SelectSingleNode("path").InnerText
 
-            ReDim PersonName(nodes.Count - 1)
-            ReDim PersonMail(nodes.Count - 1)
+			' 계정
+			AutoID = autoAccount(0).SelectSingleNode("id").InnerText
+			AutoPwd = autoAccount(0).SelectSingleNode("password").InnerText
 
-            For i = 0 To nodes.Count - 1
+			ReDim PersonName(nodes.Count - 1)
+			ReDim PersonMail(nodes.Count - 1)
 
-                PersonName(i) = nodes(i).SelectSingleNode("name").InnerText
-                PersonMail(i) = nodes(i).SelectSingleNode("email").InnerText
+			' 주소록
+			For i = 0 To nodes.Count - 1
 
-                ComboBoxSend1.Items.Add(PersonName(i))
-                ComboBoxSend2.Items.Add(PersonName(i))
-                ComboBoxSend3.Items.Add(PersonName(i))
+				PersonName(i) = nodes(i).SelectSingleNode("name").InnerText
+				PersonMail(i) = nodes(i).SelectSingleNode("email").InnerText
 
-                ComboBoxCC1.Items.Add(PersonName(i))
-                ComboBoxCC2.Items.Add(PersonName(i))
-                ComboBoxCC3.Items.Add(PersonName(i))
+				' 수신자
+				ComboBoxSend1.Items.Add(PersonName(i))
+				ComboBoxSend2.Items.Add(PersonName(i))
+				ComboBoxSend3.Items.Add(PersonName(i))
 
-                ConfForm.ComboBoxSend1.Items.Add(PersonName(i))
-                ConfForm.ComboBoxSend2.Items.Add(PersonName(i))
-                ConfForm.ComboBoxSend3.Items.Add(PersonName(i))
+				' 참조자
+				ComboBoxCC1.Items.Add(PersonName(i))
+				ComboBoxCC2.Items.Add(PersonName(i))
+				ComboBoxCC3.Items.Add(PersonName(i))
 
-                ConfForm.ComboBoxCC1.Items.Add(PersonName(i))
-                ConfForm.ComboBoxCC2.Items.Add(PersonName(i))
-                ConfForm.ComboBoxCC3.Items.Add(PersonName(i))
+				' 설정창의 수신자
+				ConfForm.ComboBoxSend1.Items.Add(PersonName(i))
+				ConfForm.ComboBoxSend2.Items.Add(PersonName(i))
+				ConfForm.ComboBoxSend3.Items.Add(PersonName(i))
 
-            Next
+				' 설정창의 참조자
+				ConfForm.ComboBoxCC1.Items.Add(PersonName(i))
+				ConfForm.ComboBoxCC2.Items.Add(PersonName(i))
+				ConfForm.ComboBoxCC3.Items.Add(PersonName(i))
 
-        Else
+			Next
 
-            MsgBox("설정파일이 존재하지 않습니다.")
+			' 설정파일이 없을 경우
+		Else
 
-        End If
+			MsgBox("설정파일이 존재하지 않습니다.")
 
-        ProgressBar1.Style = ProgressBarStyle.Blocks
-        ProgressBar1.Maximum = 9
-        ProgressBar1.Step = 1
+		End If
 
-    End Sub
+		ProgressBar1.Style = ProgressBarStyle.Blocks
+		ProgressBar1.Maximum = 9
+		ProgressBar1.Step = 1
 
-    Private Sub ComboBoxSend1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxSend1.SelectedIndexChanged
+	End Sub
 
-        LabelSend1.Text = PersonMail(ComboBoxSend1.SelectedIndex)
+	' 수신자1 메일주소 표시
+	Private Sub ComboBoxSend1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxSend1.SelectedIndexChanged
 
-    End Sub
+		LabelSend1.Text = PersonMail(ComboBoxSend1.SelectedIndex)
 
-    Private Sub ComboBoxSend2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxSend2.SelectedIndexChanged
+	End Sub
 
-        LabelSend2.Text = PersonMail(ComboBoxSend2.SelectedIndex)
+	' 수신자2 메일주소 표시
+	Private Sub ComboBoxSend2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxSend2.SelectedIndexChanged
 
-    End Sub
+		LabelSend2.Text = PersonMail(ComboBoxSend2.SelectedIndex)
 
-    Private Sub ComboBoxSend3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxSend3.SelectedIndexChanged
+	End Sub
 
-        LabelSend3.Text = PersonMail(ComboBoxSend3.SelectedIndex)
+	' 수신자3 메일주소 표시
+	Private Sub ComboBoxSend3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxSend3.SelectedIndexChanged
 
-    End Sub
+		LabelSend3.Text = PersonMail(ComboBoxSend3.SelectedIndex)
 
-    Private Sub ComboBoxCC1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxCC1.SelectedIndexChanged
+	End Sub
 
-        LabelCC1.Text = PersonMail(ComboBoxCC1.SelectedIndex)
+	' 참조자1 메일주소 표시
+	Private Sub ComboBoxCC1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxCC1.SelectedIndexChanged
 
-    End Sub
+		LabelCC1.Text = PersonMail(ComboBoxCC1.SelectedIndex)
 
-    Private Sub ComboBoxCC2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxCC2.SelectedIndexChanged
+	End Sub
 
-        LabelCC2.Text = PersonMail(ComboBoxCC2.SelectedIndex)
+	' 참조자2 메일주소 표시
+	Private Sub ComboBoxCC2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxCC2.SelectedIndexChanged
 
-    End Sub
+		LabelCC2.Text = PersonMail(ComboBoxCC2.SelectedIndex)
 
-    Private Sub ComboBoxCC3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxCC3.SelectedIndexChanged
+	End Sub
 
-        LabelCC3.Text = PersonMail(ComboBoxCC3.SelectedIndex)
+	' 참조자3 메일주소 표시
+	Private Sub ComboBoxCC3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxCC3.SelectedIndexChanged
 
-    End Sub
+		LabelCC3.Text = PersonMail(ComboBoxCC3.SelectedIndex)
 
-    Private Sub ButtonSend_Click(sender As Object, e As EventArgs) Handles ButtonSend.Click
+	End Sub
 
-        If LabelSend1.Text = "" And LabelSend2.Text = "" And LabelSend3.Text = "" Then
+	' 전송버튼 클릭 시 데이터 검증
+	Private Sub ButtonSend_Click(sender As Object, e As EventArgs) Handles ButtonSend.Click
 
-            MsgBox("수신자가 없습니다.", vbOKOnly, "Error")
+		' 수신자가 전부 비었을 경우
+		If LabelSend1.Text = "" And LabelSend2.Text = "" And LabelSend3.Text = "" Then
 
-        ElseIf Not IsDate(TextBoxDate.Text) Then
+			MsgBox("수신자가 없습니다.", vbOKOnly, "Error")
 
-            MsgBox("날짜가 올바르지 않습니다.", vbOKOnly, "Error")
+			' 날짜 형식이 올바르지 않을 경우
+		ElseIf Not IsDate(TextBoxDate.Text) Then
 
-        ElseIf TextBoxPath.Text = "" Then
+			MsgBox("날짜가 올바르지 않습니다.", vbOKOnly, "Error")
 
-            MsgBox("보고서가 없습니다.", vbOKOnly, "Error")
+			' 경로 형식이 올바르지 않을 경우
+		ElseIf TextBoxPath.Text = "" Then
 
-        ElseIf TextBoxID.Text = "" Or TextBoxPW.Text = "" Then
+			MsgBox("보고서가 없습니다.", vbOKOnly, "Error")
 
-            MsgBox("이메일 혹은 비밀번호가 없습니다.", vbOKOnly, "Error")
+		ElseIf TextBoxID.Text = "" Or TextBoxPW.Text = "" Then
 
-        ElseIf Not LabelSend1.Text = "" Or Not LabelSend2.Text = "" Or Not LabelSend3.Text = "" And IsDate(TextBoxDate) And Not TextBoxPath.Text = "" And Not TextBoxID.Text = "" And Not TextBoxPW.Text = "" Then
+			MsgBox("이메일 혹은 비밀번호가 없습니다.", vbOKOnly, "Error")
 
-            If MsgBox("보고서를 발송합니다.", vbOKCancel, "Send") = 1 Then
+		ElseIf Not LabelSend1.Text = "" Or Not LabelSend2.Text = "" Or Not LabelSend3.Text = "" And IsDate(TextBoxDate) And Not TextBoxPath.Text = "" And Not TextBoxID.Text = "" And Not TextBoxPW.Text = "" Then
 
-                BackgroundWorker1.RunWorkerAsync()
+			If MsgBox("보고서를 발송합니다.", vbOKCancel, "Send") = 1 Then
 
-            End If
+				BackgroundWorker1.RunWorkerAsync()
 
-        End If
+			End If
 
-    End Sub
+		End If
 
-    Private Sub ButtonCls_Click(sender As Object, e As EventArgs) Handles ButtonCls.Click
+	End Sub
 
-        ComboBoxSend1.SelectedIndex = 0
-        ComboBoxSend2.SelectedIndex = 0
-        ComboBoxSend3.SelectedIndex = 0
-        ComboBoxCC1.SelectedIndex = 0
-        ComboBoxCC2.SelectedIndex = 0
-        ComboBoxCC3.SelectedIndex = 0
-        TextBoxPath.Clear()
-        TextBoxTxt.Clear()
+	Private Sub ButtonCls_Click(sender As Object, e As EventArgs) Handles ButtonCls.Click
 
-    End Sub
+		ComboBoxSend1.SelectedIndex = 0
+		ComboBoxSend2.SelectedIndex = 0
+		ComboBoxSend3.SelectedIndex = 0
+		ComboBoxCC1.SelectedIndex = 0
+		ComboBoxCC2.SelectedIndex = 0
+		ComboBoxCC3.SelectedIndex = 0
+		TextBoxPath.Clear()
+		TextBoxTxt.Clear()
 
-    Private Sub ButtonFile_Click(sender As Object, e As EventArgs) Handles ButtonFile.Click
+	End Sub
 
-        OpenFileDialog1.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm"
+	Private Sub ButtonFile_Click(sender As Object, e As EventArgs) Handles ButtonFile.Click
 
-        If (OpenFileDialog1.ShowDialog() = DialogResult.OK) Then
+		OpenFileDialog1.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm"
 
-            TextBoxPath.Text = OpenFileDialog1.FileName
+		If (OpenFileDialog1.ShowDialog() = DialogResult.OK) Then
 
-        End If
+			TextBoxPath.Text = OpenFileDialog1.FileName
 
-    End Sub
+		End If
 
-    Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
+	End Sub
 
-        Dim xlotno = ""
-        Dim sheetname = Format(DatePart("m", TextBoxDate.Text), "00") & Format(DatePart("d", TextBoxDate.Text), "00")
-        Dim i = 0
-        Dim workerName As String
-        Dim workerPart As String
-        Dim charArr() As Char
+	Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
 
-        WorkDeny = False
-        BackgroundWorker1.ReportProgress(1)
+		Dim xlotno = ""
+		Dim sheetname = Format(DatePart("m", TextBoxDate.Text), "00") & Format(DatePart("d", TextBoxDate.Text), "00")
+		Dim i = 0
+		Dim workerName As String
+		Dim workerPart As String
+		Dim charArr() As Char
 
-        Try
+		WorkDeny = False
+		BackgroundWorker1.ReportProgress(1)
 
-            xls.Visible = True
-            xworkbook = xls.Workbooks.Open(TextBoxPath.Text)
-            xworksheet = xworkbook.Sheets(sheetname)
-            workerName = xworksheet.Cells(6, 3).Value
-            workerPart = xworksheet.Cells(5, 3).Value
+		Try
 
-            While (True)
+			xls.Visible = True
+			xworkbook = xls.Workbooks.Open(TextBoxPath.Text)
+			xworksheet = xworkbook.Sheets(sheetname)
+			workerName = xworksheet.Cells(6, 3).Value
+			workerPart = xworksheet.Cells(5, 3).Value
 
-                If Not xworksheet.Cells(BF + i, 3).Value = "" Then
+			While (True)
 
-                    charArr = xworksheet.Cells(BF + i, 3).Value.ToCharArray
+				If Not xworksheet.Cells(BF + i, 3).Value = "" Then
 
-                    If charArr.Length >= 3 And charArr(0) = "=" And charArr(1) = "=" And charArr(2) = "=" Then
+					charArr = xworksheet.Cells(BF + i, 3).Value.ToCharArray
 
-                        Exit While
+					If charArr.Length >= 3 Then
 
-                    End If
+						If charArr.Length >= 3 And charArr(0) = "=" And charArr(1) = "=" And charArr(2) = "=" Then
 
-                    If charArr(1) = "." And charArr(2) = " " Then
+							Exit While
 
-                        xlotno += vbCrLf & xworksheet.Cells(BF + i, 3).Value & vbCrLf
+						End If
 
-                    ElseIf Not charArr(1) = "." And Not charArr(2) = " " Then
+						If charArr(1) = "." And charArr(2) = " " Then
 
-                        xlotno += xworksheet.Cells(BF + i, 3).Value & vbCrLf
+							xlotno += vbCrLf & xworksheet.Cells(BF + i, 3).Value & vbCrLf
 
-                    End If
+						End If
 
-                End If
+					Else
 
-                i += 1
+						xlotno += xworksheet.Cells(BF + i, 3).Value & vbCrLf
 
-            End While
+					End If
 
-        Catch ex As Exception
+				End If
 
-            MsgBox(ex.Message)
-            WorkDeny = True
-            Exit Sub
+				i += 1
 
-        End Try
+			End While
 
-        BackgroundWorker1.ReportProgress(2)
+		Catch ex As Exception
 
-        Try
+			MsgBox(ex.Message)
+			WorkDeny = True
+			Exit Sub
 
-            xworkbook.Close()
-            xls.Quit()
+		End Try
 
-            Marshal.ReleaseComObject(xworksheet)
-            Marshal.ReleaseComObject(xworkbook)
-            Marshal.ReleaseComObject(xls)
+		BackgroundWorker1.ReportProgress(2)
 
-        Catch ex As Exception
+		Try
 
-            MsgBox(ex.Message)
-            WorkDeny = True
-            Exit Sub
+			xworkbook.Close()
+			xls.Quit()
 
-        End Try
+			Marshal.ReleaseComObject(xworksheet)
+			Marshal.ReleaseComObject(xworkbook)
+			Marshal.ReleaseComObject(xls)
 
-        BackgroundWorker1.ReportProgress(3)
+		Catch ex As Exception
 
-        Dim smtpServer As New SmtpClient()
-        Dim mail As New MailMessage()
+			MsgBox(ex.Message)
+			WorkDeny = True
+			Exit Sub
 
-        Try
+		End Try
 
-            smtpServer.Credentials = New Net.NetworkCredential(TextBoxID.Text, TextBoxPW.Text)
-            smtpServer.Port = 587
-            smtpServer.Host = "smtp.gmail.com"
-            smtpServer.EnableSsl = True
+		BackgroundWorker1.ReportProgress(3)
 
-            mail = New MailMessage()
-            mail.From = New MailAddress(TextBoxID.Text)
+		Dim smtpServer As New SmtpClient()
+		Dim mail As New MailMessage()
 
-        Catch ex As Exception
+		Try
 
-            MsgBox(ex.Message)
-            WorkDeny = True
+			smtpServer.Credentials = New Net.NetworkCredential(TextBoxID.Text, TextBoxPW.Text)
+			smtpServer.Port = 587
+			smtpServer.Host = "smtp.gmail.com"
+			smtpServer.EnableSsl = True
 
-            xworkbook.Close()
-            xls.Quit()
+			mail = New MailMessage()
+			mail.From = New MailAddress(TextBoxID.Text)
 
-            Marshal.ReleaseComObject(xworksheet)
-            Marshal.ReleaseComObject(xworkbook)
-            Marshal.ReleaseComObject(xls)
+		Catch ex As Exception
 
-            Exit Sub
+			MsgBox(ex.Message)
+			WorkDeny = True
 
-        End Try
+			xworkbook.Close()
+			xls.Quit()
 
-        BackgroundWorker1.ReportProgress(4)
+			Marshal.ReleaseComObject(xworksheet)
+			Marshal.ReleaseComObject(xworkbook)
+			Marshal.ReleaseComObject(xls)
 
-        Try
+			Exit Sub
 
-            If Not LabelSend1.Text = "" Then
+		End Try
 
-                mail.To.Add(LabelSend1.Text)
+		BackgroundWorker1.ReportProgress(4)
 
-            End If
+		Try
 
-            If Not LabelSend2.Text = "" Then
+			If Not LabelSend1.Text = "" Then
 
-                mail.To.Add(LabelSend2.Text)
+				mail.To.Add(LabelSend1.Text)
 
-            End If
+			End If
 
-            If Not LabelSend3.Text = "" Then
+			If Not LabelSend2.Text = "" Then
 
-                mail.To.Add(LabelSend3.Text)
+				mail.To.Add(LabelSend2.Text)
 
-            End If
+			End If
 
-        Catch ex As Exception
+			If Not LabelSend3.Text = "" Then
 
-            MsgBox(ex.Message)
-            WorkDeny = True
+				mail.To.Add(LabelSend3.Text)
 
-            xworkbook.Close()
-            xls.Quit()
+			End If
 
-            Marshal.ReleaseComObject(xworksheet)
-            Marshal.ReleaseComObject(xworkbook)
-            Marshal.ReleaseComObject(xls)
+		Catch ex As Exception
 
-            Exit Sub
+			MsgBox(ex.Message)
+			WorkDeny = True
 
-        End Try
+			xworkbook.Close()
+			xls.Quit()
 
-        BackgroundWorker1.ReportProgress(5)
+			Marshal.ReleaseComObject(xworksheet)
+			Marshal.ReleaseComObject(xworkbook)
+			Marshal.ReleaseComObject(xls)
 
-        Try
+			Exit Sub
 
-            If Not LabelCC1.Text = "" Then
+		End Try
 
-                mail.CC.Add(LabelCC1.Text)
+		BackgroundWorker1.ReportProgress(5)
 
-            End If
+		Try
 
-            If Not LabelCC2.Text = "" Then
+			If Not LabelCC1.Text = "" Then
 
-                mail.CC.Add(LabelCC2.Text)
+				mail.CC.Add(LabelCC1.Text)
 
-            End If
+			End If
 
-            If Not LabelCC3.Text = "" Then
+			If Not LabelCC2.Text = "" Then
 
-                mail.CC.Add(LabelCC3.Text)
+				mail.CC.Add(LabelCC2.Text)
 
-            End If
+			End If
 
-        Catch ex As Exception
+			If Not LabelCC3.Text = "" Then
 
-            MsgBox(ex.Message)
-            WorkDeny = True
+				mail.CC.Add(LabelCC3.Text)
 
-            xworkbook.Close()
-            xls.Quit()
+			End If
 
-            Marshal.ReleaseComObject(xworksheet)
-            Marshal.ReleaseComObject(xworkbook)
-            Marshal.ReleaseComObject(xls)
+		Catch ex As Exception
 
-            Exit Sub
+			MsgBox(ex.Message)
+			WorkDeny = True
 
-        End Try
+			xworkbook.Close()
+			xls.Quit()
 
-        BackgroundWorker1.ReportProgress(6)
+			Marshal.ReleaseComObject(xworksheet)
+			Marshal.ReleaseComObject(xworkbook)
+			Marshal.ReleaseComObject(xls)
 
-        Try
+			Exit Sub
 
-            mail.Subject = TextBoxDate.Text & " " & WeekdayName(Weekday(TextBoxDate.Text)) & " 일일업무 보고입니다."
-            mail.Body = "안녕하십니까." & vbCrLf &
-                        workerPart & " " & workerName & "입니다." & vbCrLf & vbCrLf &
-                        TextBoxDate.Text & " " & WeekdayName(Weekday(TextBoxDate.Text)) & " 일일업무 보고입니다." & vbCrLf &
-                        xlotno & vbCrLf &
-                        TextBoxTxt.Text & vbCrLf & vbCrLf &
-                        "이상입니다." & vbCrLf & vbCrLf & vbCrLf &
-                        workerName & " 드림"
+		End Try
 
-        Catch ex As Exception
+		BackgroundWorker1.ReportProgress(6)
 
-            MsgBox(ex.Message)
-            WorkDeny = True
+		Try
 
-            xworkbook.Close()
-            xls.Quit()
+			mail.Subject = TextBoxDate.Text & " " & WeekdayName(Weekday(TextBoxDate.Text)) & " 일일업무 보고입니다."
+			mail.Body = "안녕하십니까." & vbCrLf &
+							workerPart & " " & workerName & "입니다." & vbCrLf & vbCrLf &
+							TextBoxDate.Text & " " & WeekdayName(Weekday(TextBoxDate.Text)) & " 일일업무 보고입니다." & vbCrLf &
+							xlotno & vbCrLf &
+							TextBoxTxt.Text & vbCrLf & vbCrLf &
+							"이상입니다." & vbCrLf & vbCrLf & vbCrLf &
+							workerName & " 드림"
 
-            Marshal.ReleaseComObject(xlotno)
-            Marshal.ReleaseComObject(workerPart)
-            Marshal.ReleaseComObject(workerName)
-            Marshal.ReleaseComObject(xworksheet)
-            Marshal.ReleaseComObject(xworkbook)
-            Marshal.ReleaseComObject(xls)
+		Catch ex As Exception
 
-            Exit Sub
+			MsgBox(ex.Message)
+			WorkDeny = True
 
-        End Try
+			xworkbook.Close()
+			xls.Quit()
 
-        BackgroundWorker1.ReportProgress(7)
+			Marshal.ReleaseComObject(xlotno)
+			Marshal.ReleaseComObject(workerPart)
+			Marshal.ReleaseComObject(workerName)
+			Marshal.ReleaseComObject(xworksheet)
+			Marshal.ReleaseComObject(xworkbook)
+			Marshal.ReleaseComObject(xls)
 
-        Try
+			Exit Sub
 
-            mail.Attachments.Add(New Attachment(TextBoxPath.Text))
+		End Try
 
-        Catch ex As Exception
+		BackgroundWorker1.ReportProgress(7)
 
-            MsgBox(ex.Message)
-            WorkDeny = True
+		Try
 
-            xworkbook.Close()
-            xls.Quit()
+			mail.Attachments.Add(New Attachment(TextBoxPath.Text))
 
-            Marshal.ReleaseComObject(xlotno)
-            Marshal.ReleaseComObject(workerPart)
-            Marshal.ReleaseComObject(workerName)
-            Marshal.ReleaseComObject(xworksheet)
-            Marshal.ReleaseComObject(xworkbook)
-            Marshal.ReleaseComObject(xls)
+		Catch ex As Exception
 
-            Exit Sub
+			MsgBox(ex.Message)
+			WorkDeny = True
 
-        End Try
+			xworkbook.Close()
+			xls.Quit()
 
-        BackgroundWorker1.ReportProgress(8)
+			Marshal.ReleaseComObject(xlotno)
+			Marshal.ReleaseComObject(workerPart)
+			Marshal.ReleaseComObject(workerName)
+			Marshal.ReleaseComObject(xworksheet)
+			Marshal.ReleaseComObject(xworkbook)
+			Marshal.ReleaseComObject(xls)
 
-        Try
+			Exit Sub
 
-            smtpServer.Send(mail)
+		End Try
 
-        Catch ex As Exception
+		BackgroundWorker1.ReportProgress(8)
 
-            MsgBox(ex.Message)
-            WorkDeny = True
+		Try
 
-            xworkbook.Close()
-            xls.Quit()
+			smtpServer.Send(mail)
 
-            Marshal.ReleaseComObject(xlotno)
-            Marshal.ReleaseComObject(workerPart)
-            Marshal.ReleaseComObject(workerName)
-            Marshal.ReleaseComObject(xworksheet)
-            Marshal.ReleaseComObject(xworkbook)
-            Marshal.ReleaseComObject(xls)
+		Catch ex As Exception
 
-            Exit Sub
+			MsgBox(ex.Message)
+			WorkDeny = True
 
-        End Try
+			xworkbook.Close()
+			xls.Quit()
 
-        BackgroundWorker1.ReportProgress(9)
+			Marshal.ReleaseComObject(xlotno)
+			Marshal.ReleaseComObject(workerPart)
+			Marshal.ReleaseComObject(workerName)
+			Marshal.ReleaseComObject(xworksheet)
+			Marshal.ReleaseComObject(xworkbook)
+			Marshal.ReleaseComObject(xls)
 
-        Try
+			Exit Sub
 
-            xworkbook.Close()
-            xls.Quit()
+		End Try
 
-            Marshal.ReleaseComObject(xlotno)
-            Marshal.ReleaseComObject(workerPart)
-            Marshal.ReleaseComObject(workerName)
-            Marshal.ReleaseComObject(xworksheet)
-            Marshal.ReleaseComObject(xworkbook)
-            Marshal.ReleaseComObject(xls)
+		BackgroundWorker1.ReportProgress(9)
 
-        Catch ex As Exception
+		Try
 
-        End Try
+			xworkbook.Close()
+			xls.Quit()
 
-    End Sub
+			Marshal.ReleaseComObject(xlotno)
+			Marshal.ReleaseComObject(workerPart)
+			Marshal.ReleaseComObject(workerName)
+			Marshal.ReleaseComObject(xworksheet)
+			Marshal.ReleaseComObject(xworkbook)
+			Marshal.ReleaseComObject(xls)
 
-    Private Sub BackgroundWorker1_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles BackgroundWorker1.RunWorkerCompleted
+		Catch ex As Exception
 
-        If WorkDeny = False Then
+		End Try
 
-            MsgBox("발송 완료", vbOKOnly, "Send")
-            ProgressBar1.Value = 0
+	End Sub
 
-        ElseIf WorkDeny = True Then
+	Private Sub BackgroundWorker1_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles BackgroundWorker1.RunWorkerCompleted
 
-            MsgBox("발송 실패", vbOKOnly, "Send")
-            ProgressBar1.Value = 0
+		If WorkDeny = False Then
 
-        End If
+			MsgBox("발송 완료", vbOKOnly, "Send")
+			ProgressBar1.Value = 0
 
-    End Sub
+		ElseIf WorkDeny = True Then
 
-    Private Sub BackgroundWorker1_ProgressChanged(sender As Object, e As ProgressChangedEventArgs) Handles BackgroundWorker1.ProgressChanged
+			MsgBox("발송 실패", vbOKOnly, "Send")
+			ProgressBar1.Value = 0
 
-        ProgressBar1.Value = e.ProgressPercentage
+		End If
 
-    End Sub
+	End Sub
 
-    Private Sub ButtonShoot_Click(sender As Object, e As EventArgs) Handles ButtonShoot.Click
+	Private Sub BackgroundWorker1_ProgressChanged(sender As Object, e As ProgressChangedEventArgs) Handles BackgroundWorker1.ProgressChanged
 
-        TextBoxDate.Text = Format(Now, "yyyy-MM-dd")
+		ProgressBar1.Value = e.ProgressPercentage
 
-        ComboBoxSend1.SelectedItem = AutoSendList(0)
-        ComboBoxSend2.SelectedItem = AutoSendList(1)
-        ComboBoxSend3.SelectedItem = AutoSendList(2)
+	End Sub
 
-        ComboBoxCC1.SelectedItem = AutoCCList(0)
-        ComboBoxCC2.SelectedItem = AutoCCList(1)
-        ComboBoxCC3.SelectedItem = AutoCCList(2)
+	Private Sub ButtonShoot_Click(sender As Object, e As EventArgs) Handles ButtonShoot.Click
 
-        TextBoxID.Text = AutoID
-        TextBoxPW.Text = AutoPwd
-        TextBoxPath.Text = AutoAttachStr
+		TextBoxDate.Text = Format(Now, "yyyy-MM-dd")
 
-    End Sub
+		ComboBoxSend1.SelectedItem = AutoSendList(0)
+		ComboBoxSend2.SelectedItem = AutoSendList(1)
+		ComboBoxSend3.SelectedItem = AutoSendList(2)
 
-    Private Sub Main_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+		ComboBoxCC1.SelectedItem = AutoCCList(0)
+		ComboBoxCC2.SelectedItem = AutoCCList(1)
+		ComboBoxCC3.SelectedItem = AutoCCList(2)
 
-        Try
+		TextBoxID.Text = AutoID
+		TextBoxPW.Text = AutoPwd
+		TextBoxPath.Text = AutoAttachStr
 
-            xworkbook.Close()
-            xls.Quit()
+	End Sub
 
-            Marshal.ReleaseComObject(xworksheet)
-            Marshal.ReleaseComObject(xworkbook)
-            Marshal.ReleaseComObject(xls)
+	Private Sub Main_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
 
-        Catch ex As Exception
+		Try
 
-        End Try
+			xworkbook.Close()
+			xls.Quit()
 
-    End Sub
+			Marshal.ReleaseComObject(xworksheet)
+			Marshal.ReleaseComObject(xworkbook)
+			Marshal.ReleaseComObject(xls)
 
-    Private Sub PictureBox1_DoubleClick(sender As Object, e As EventArgs) Handles PictureBox1.DoubleClick
+		Catch ex As Exception
 
-        EasterEgg.ShowDialog()
+		End Try
 
-    End Sub
+	End Sub
 
-    Private Sub ButtonOpen_Click(sender As Object, e As EventArgs) Handles ButtonOpen.Click
+	Private Sub PictureBox1_DoubleClick(sender As Object, e As EventArgs) Handles PictureBox1.DoubleClick
 
-        If Not TextBoxPath.Text = "" Then
+		EasterEgg.ShowDialog()
 
-            Dim workbook As New Excel.Application
-            workbook.Visible = True
-            workbook.Workbooks.Open(TextBoxPath.Text)
+	End Sub
 
-        Else
+	Private Sub ButtonOpen_Click(sender As Object, e As EventArgs) Handles ButtonOpen.Click
 
-            MsgBox("올바른 보고서 경로를 입력하세요!", vbOKOnly, "Error")
+		If Not TextBoxPath.Text = "" Then
 
-        End If
+			Dim workbook As New Excel.Application
+			workbook.Visible = True
+			workbook.Workbooks.Open(TextBoxPath.Text)
 
-    End Sub
+		Else
 
-    Private Sub ButtonConf_Click(sender As Object, e As EventArgs) Handles ButtonConf.Click
+			MsgBox("올바른 보고서 경로를 입력하세요!", vbOKOnly, "Error")
 
-        ConfForm.ShowDialog()
+		End If
 
-    End Sub
+	End Sub
+
+	Private Sub ButtonConf_Click(sender As Object, e As EventArgs) Handles ButtonConf.Click
+
+		ConfForm.ShowDialog()
+
+	End Sub
 
 End Class

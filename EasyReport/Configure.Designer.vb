@@ -175,14 +175,14 @@ Partial Class Configure
         '
         'TextBoxID
         '
-        Me.TextBoxID.Location = New System.Drawing.Point(59, 165)
+        Me.TextBoxID.Location = New System.Drawing.Point(59, 156)
         Me.TextBoxID.Name = "TextBoxID"
         Me.TextBoxID.Size = New System.Drawing.Size(100, 21)
         Me.TextBoxID.TabIndex = 14
         '
         'TextBoxPwd
         '
-        Me.TextBoxPwd.Location = New System.Drawing.Point(248, 165)
+        Me.TextBoxPwd.Location = New System.Drawing.Point(248, 156)
         Me.TextBoxPwd.Name = "TextBoxPwd"
         Me.TextBoxPwd.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TextBoxPwd.Size = New System.Drawing.Size(100, 21)
@@ -190,7 +190,7 @@ Partial Class Configure
         '
         'TextBoxFile
         '
-        Me.TextBoxFile.Location = New System.Drawing.Point(84, 208)
+        Me.TextBoxFile.Location = New System.Drawing.Point(84, 199)
         Me.TextBoxFile.Name = "TextBoxFile"
         Me.TextBoxFile.Size = New System.Drawing.Size(227, 21)
         Me.TextBoxFile.TabIndex = 16
@@ -198,7 +198,7 @@ Partial Class Configure
         'LabelID
         '
         Me.LabelID.AutoSize = True
-        Me.LabelID.Location = New System.Drawing.Point(29, 168)
+        Me.LabelID.Location = New System.Drawing.Point(29, 159)
         Me.LabelID.Name = "LabelID"
         Me.LabelID.Size = New System.Drawing.Size(16, 12)
         Me.LabelID.TabIndex = 17
@@ -207,7 +207,7 @@ Partial Class Configure
         'LabelPwd
         '
         Me.LabelPwd.AutoSize = True
-        Me.LabelPwd.Location = New System.Drawing.Point(203, 168)
+        Me.LabelPwd.Location = New System.Drawing.Point(203, 159)
         Me.LabelPwd.Name = "LabelPwd"
         Me.LabelPwd.Size = New System.Drawing.Size(31, 12)
         Me.LabelPwd.TabIndex = 18
@@ -216,7 +216,7 @@ Partial Class Configure
         'LabelFile
         '
         Me.LabelFile.AutoSize = True
-        Me.LabelFile.Location = New System.Drawing.Point(23, 211)
+        Me.LabelFile.Location = New System.Drawing.Point(23, 202)
         Me.LabelFile.Name = "LabelFile"
         Me.LabelFile.Size = New System.Drawing.Size(53, 12)
         Me.LabelFile.TabIndex = 19
@@ -224,21 +224,18 @@ Partial Class Configure
         '
         'ButtonPath
         '
-        Me.ButtonPath.Location = New System.Drawing.Point(322, 206)
+        Me.ButtonPath.Location = New System.Drawing.Point(322, 198)
         Me.ButtonPath.Name = "ButtonPath"
         Me.ButtonPath.Size = New System.Drawing.Size(26, 23)
         Me.ButtonPath.TabIndex = 20
         Me.ButtonPath.Text = "..."
         Me.ButtonPath.UseVisualStyleBackColor = True
         '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
         'Configure
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(379, 288)
         Me.Controls.Add(Me.ButtonPath)
         Me.Controls.Add(Me.LabelFile)
