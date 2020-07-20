@@ -5,6 +5,19 @@ Public Class Configure
 
 	Private Sub Configure_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+		TextBoxHost.Text = Main.SmtpHost
+		TextBoxPort.Text = Main.SmtpPort
+
+		If Main.SmtpSSL Then
+
+			RadioButtonTrue.Checked = True
+
+		Else
+
+			RadioButtonFalse.Checked = True
+
+		End If
+
 		ComboBoxSend1.SelectedItem = Main.AutoSendList(0)
 		ComboBoxSend2.SelectedItem = Main.AutoSendList(1)
 		ComboBoxSend3.SelectedItem = Main.AutoSendList(2)
@@ -35,6 +48,10 @@ Public Class Configure
 
 				Conf.Load(Main.Config)
 
+				Dim nodeHost As XmlNode = Conf.SelectSingleNode("/descendant::data/mail/host[.='" + Main.SmtpHost + "']")
+				Dim nodePort As XmlNode = Conf.SelectSingleNode("/descendant::data/mail/port[.='" + Main.SmtpPort.ToString + "']")
+				Dim nodeSSL As XmlNode = Conf.SelectSingleNode("/descendant::data/mail/ssl[.='" + Main.SmtpSSL.ToString + "']")
+
 				Dim nodeSend1 As XmlNode = Conf.SelectSingleNode("/descendant::data/autoset/send/name1[.='" + Main.AutoSendList(0) + "']")
 				Dim nodeSend2 As XmlNode = Conf.SelectSingleNode("/descendant::data/autoset/send/name2[.='" + Main.AutoSendList(1) + "']")
 				Dim nodeSend3 As XmlNode = Conf.SelectSingleNode("/descendant::data/autoset/send/name3[.='" + Main.AutoSendList(2) + "']")
@@ -46,6 +63,19 @@ Public Class Configure
 				Dim nodeFile As XmlNode = Conf.SelectSingleNode("/descendant::data/autoset/attach/path[.='" + Main.AutoAttachStr + "']")
 				Dim nodeID As XmlNode = Conf.SelectSingleNode("/descendant::data/autoset/account/id[.='" + Main.AutoID + "']")
 				Dim nodePwd As XmlNode = Conf.SelectSingleNode("/descendant::data/autoset/account/password[.='" + Main.AutoPwd + "']")
+
+				nodeHost.InnerText = TextBoxHost.Text
+				nodePort.InnerText = TextBoxPort.Text
+
+				If RadioButtonTrue.Checked Then
+
+					nodeSSL.InnerText = "True"
+
+				Else
+
+					nodeSSL.InnerText = "False"
+
+				End If
 
 				nodeSend1.InnerText = ComboBoxSend1.SelectedItem
 				nodeSend2.InnerText = ComboBoxSend2.SelectedItem
@@ -64,6 +94,19 @@ Public Class Configure
 			Else
 
 				MsgBox("설정파일이 존재하지 않습니다.")
+
+			End If
+
+			Main.SmtpHost = TextBoxHost.Text
+			Main.SmtpPort = Integer.Parse(TextBoxPort.Text)
+
+			If RadioButtonTrue.Checked Then
+
+				Main.SmtpSSL = True
+
+			Else
+
+				Main.SmtpSSL = False
 
 			End If
 
@@ -104,4 +147,13 @@ Public Class Configure
 
 	End Sub
 
+	Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxPort.KeyPress
+
+		If Not Char.IsDigit(e.KeyChar) And Not Char.IsControl(e.KeyChar) And Not e.KeyChar = "." Then
+
+			e.Handled = True
+
+		End If
+
+	End Sub
 End Class

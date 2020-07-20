@@ -12,6 +12,10 @@ Public Class Main
 	Public Address(18) As String
 	Public WorkDeny = False
 
+	Public SmtpHost As String
+	Public SmtpPort As Integer
+	Public SmtpSSL As Boolean
+
 	Public PersonName(1) As String
 	Public PersonMail(1) As String
 
@@ -73,10 +77,30 @@ Public Class Main
 
 			Dim nodes As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/list/address")
 
+			Dim mail As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/mail")
+
 			Dim autoSend As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/autoset/send")
 			Dim autoCC As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/autoset/cc")
 			Dim autoAttach As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/autoset/attach")
 			Dim autoAccount As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/autoset/account")
+
+			' Smtp 호스트
+			SmtpHost = mail(0).SelectSingleNode("host").InnerText
+
+			' Smtp 포트
+			SmtpPort = Integer.Parse(mail(0).SelectSingleNode("port").InnerText)
+
+			Dim TempSSL = mail(0).SelectSingleNode("ssl").InnerText
+
+			If TempSSL.ToLower = "true" Then
+
+				SmtpSSL = True
+
+			Else
+
+				SmtpSSL = False
+
+			End If
 
 			' 수신자
 			AutoSendList(0) = autoSend(0).SelectSingleNode("name1").InnerText
@@ -327,9 +351,9 @@ Public Class Main
 		Try
 
 			smtpServer.Credentials = New Net.NetworkCredential(TextBoxID.Text, TextBoxPW.Text)
-			smtpServer.Port = 587
-			smtpServer.Host = "smtp.gmail.com"
-			smtpServer.EnableSsl = True
+			smtpServer.Port = SmtpPort
+			smtpServer.Host = SmtpHost
+			smtpServer.EnableSsl = SmtpSSL
 
 			mail = New MailMessage()
 			mail.From = New MailAddress(TextBoxID.Text)
@@ -341,10 +365,6 @@ Public Class Main
 
 			xworkbook.Close()
 			xls.Quit()
-
-			Marshal.ReleaseComObject(xworksheet)
-			Marshal.ReleaseComObject(xworkbook)
-			Marshal.ReleaseComObject(xls)
 
 			Exit Sub
 
@@ -380,10 +400,6 @@ Public Class Main
 			xworkbook.Close()
 			xls.Quit()
 
-			Marshal.ReleaseComObject(xworksheet)
-			Marshal.ReleaseComObject(xworkbook)
-			Marshal.ReleaseComObject(xls)
-
 			Exit Sub
 
 		End Try
@@ -418,10 +434,6 @@ Public Class Main
 			xworkbook.Close()
 			xls.Quit()
 
-			Marshal.ReleaseComObject(xworksheet)
-			Marshal.ReleaseComObject(xworkbook)
-			Marshal.ReleaseComObject(xls)
-
 			Exit Sub
 
 		End Try
@@ -447,13 +459,6 @@ Public Class Main
 			xworkbook.Close()
 			xls.Quit()
 
-			Marshal.ReleaseComObject(xlotno)
-			Marshal.ReleaseComObject(workerPart)
-			Marshal.ReleaseComObject(workerName)
-			Marshal.ReleaseComObject(xworksheet)
-			Marshal.ReleaseComObject(xworkbook)
-			Marshal.ReleaseComObject(xls)
-
 			Exit Sub
 
 		End Try
@@ -471,13 +476,6 @@ Public Class Main
 
 			xworkbook.Close()
 			xls.Quit()
-
-			Marshal.ReleaseComObject(xlotno)
-			Marshal.ReleaseComObject(workerPart)
-			Marshal.ReleaseComObject(workerName)
-			Marshal.ReleaseComObject(xworksheet)
-			Marshal.ReleaseComObject(xworkbook)
-			Marshal.ReleaseComObject(xls)
 
 			Exit Sub
 
@@ -497,13 +495,6 @@ Public Class Main
 			xworkbook.Close()
 			xls.Quit()
 
-			Marshal.ReleaseComObject(xlotno)
-			Marshal.ReleaseComObject(workerPart)
-			Marshal.ReleaseComObject(workerName)
-			Marshal.ReleaseComObject(xworksheet)
-			Marshal.ReleaseComObject(xworkbook)
-			Marshal.ReleaseComObject(xls)
-
 			Exit Sub
 
 		End Try
@@ -514,13 +505,6 @@ Public Class Main
 
 			xworkbook.Close()
 			xls.Quit()
-
-			Marshal.ReleaseComObject(xlotno)
-			Marshal.ReleaseComObject(workerPart)
-			Marshal.ReleaseComObject(workerName)
-			Marshal.ReleaseComObject(xworksheet)
-			Marshal.ReleaseComObject(xworkbook)
-			Marshal.ReleaseComObject(xls)
 
 		Catch ex As Exception
 
