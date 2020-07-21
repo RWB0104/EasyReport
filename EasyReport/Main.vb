@@ -70,92 +70,90 @@ Public Class Main
 
 		Dim Conf As New XmlDocument()
 
-		' 설정파일이 있을 경우
-		If File.Exists(Config) Then
+		' 설정파일이 없을 경우
+		If Not File.Exists(Config) Then
 
-			Conf.Load(Config)
-
-			Dim nodes As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/list/address")
-
-			Dim mail As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/mail")
-
-			Dim autoSend As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/autoset/send")
-			Dim autoCC As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/autoset/cc")
-			Dim autoAttach As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/autoset/attach")
-			Dim autoAccount As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/autoset/account")
-
-			' Smtp 호스트
-			SmtpHost = mail(0).SelectSingleNode("host").InnerText
-
-			' Smtp 포트
-			SmtpPort = Integer.Parse(mail(0).SelectSingleNode("port").InnerText)
-
-			Dim TempSSL = mail(0).SelectSingleNode("ssl").InnerText
-
-			If TempSSL.ToLower = "true" Then
-
-				SmtpSSL = True
-
-			Else
-
-				SmtpSSL = False
-
-			End If
-
-			' 수신자
-			AutoSendList(0) = autoSend(0).SelectSingleNode("name1").InnerText
-			AutoSendList(1) = autoSend(0).SelectSingleNode("name2").InnerText
-			AutoSendList(2) = autoSend(0).SelectSingleNode("name3").InnerText
-
-			' 참조자
-			AutoCCList(0) = autoCC(0).SelectSingleNode("name1").InnerText
-			AutoCCList(1) = autoCC(0).SelectSingleNode("name2").InnerText
-			AutoCCList(2) = autoCC(0).SelectSingleNode("name3").InnerText
-
-			' 첨부파일 경로
-			AutoAttachStr = autoAttach(0).SelectSingleNode("path").InnerText
-
-			' 계정
-			AutoID = autoAccount(0).SelectSingleNode("id").InnerText
-			AutoPwd = autoAccount(0).SelectSingleNode("password").InnerText
-
-			ReDim PersonName(nodes.Count - 1)
-			ReDim PersonMail(nodes.Count - 1)
-
-			' 주소록
-			For i = 0 To nodes.Count - 1
-
-				PersonName(i) = nodes(i).SelectSingleNode("name").InnerText
-				PersonMail(i) = nodes(i).SelectSingleNode("email").InnerText
-
-				' 수신자
-				ComboBoxSend1.Items.Add(PersonName(i))
-				ComboBoxSend2.Items.Add(PersonName(i))
-				ComboBoxSend3.Items.Add(PersonName(i))
-
-				' 참조자
-				ComboBoxCC1.Items.Add(PersonName(i))
-				ComboBoxCC2.Items.Add(PersonName(i))
-				ComboBoxCC3.Items.Add(PersonName(i))
-
-				' 설정창의 수신자
-				ConfForm.ComboBoxSend1.Items.Add(PersonName(i))
-				ConfForm.ComboBoxSend2.Items.Add(PersonName(i))
-				ConfForm.ComboBoxSend3.Items.Add(PersonName(i))
-
-				' 설정창의 참조자
-				ConfForm.ComboBoxCC1.Items.Add(PersonName(i))
-				ConfForm.ComboBoxCC2.Items.Add(PersonName(i))
-				ConfForm.ComboBoxCC3.Items.Add(PersonName(i))
-
-			Next
-
-			' 설정파일이 없을 경우
-		Else
-
-			MsgBox("설정파일이 존재하지 않습니다.")
+			ConfigMake()
+			MsgBox("기본 설정파일이 생성되었습니다.")
 
 		End If
+
+		Conf.Load(Config)
+
+		Dim nodes As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/list/address")
+
+		Dim mail As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/mail")
+
+		Dim autoSend As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/autoset/send")
+		Dim autoCC As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/autoset/cc")
+		Dim autoAttach As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/autoset/attach")
+		Dim autoAccount As XmlNodeList = Conf.DocumentElement.SelectNodes("/data/autoset/account")
+
+		' Smtp 호스트
+		SmtpHost = mail(0).SelectSingleNode("host").InnerText
+
+		' Smtp 포트
+		SmtpPort = Integer.Parse(mail(0).SelectSingleNode("port").InnerText)
+
+		Dim TempSSL = mail(0).SelectSingleNode("ssl").InnerText
+
+		If TempSSL.ToLower = "true" Then
+
+			SmtpSSL = True
+
+		Else
+
+			SmtpSSL = False
+
+		End If
+
+		' 수신자
+		AutoSendList(0) = autoSend(0).SelectSingleNode("name1").InnerText
+		AutoSendList(1) = autoSend(0).SelectSingleNode("name2").InnerText
+		AutoSendList(2) = autoSend(0).SelectSingleNode("name3").InnerText
+
+		' 참조자
+		AutoCCList(0) = autoCC(0).SelectSingleNode("name1").InnerText
+		AutoCCList(1) = autoCC(0).SelectSingleNode("name2").InnerText
+		AutoCCList(2) = autoCC(0).SelectSingleNode("name3").InnerText
+
+		' 첨부파일 경로
+		AutoAttachStr = autoAttach(0).SelectSingleNode("path").InnerText
+
+		' 계정
+		AutoID = autoAccount(0).SelectSingleNode("id").InnerText
+		AutoPwd = autoAccount(0).SelectSingleNode("password").InnerText
+
+		ReDim PersonName(nodes.Count - 1)
+		ReDim PersonMail(nodes.Count - 1)
+
+		' 주소록
+		For i = 0 To nodes.Count - 1
+
+			PersonName(i) = nodes(i).SelectSingleNode("name").InnerText
+			PersonMail(i) = nodes(i).SelectSingleNode("email").InnerText
+
+			' 수신자
+			ComboBoxSend1.Items.Add(PersonName(i))
+			ComboBoxSend2.Items.Add(PersonName(i))
+			ComboBoxSend3.Items.Add(PersonName(i))
+
+			' 참조자
+			ComboBoxCC1.Items.Add(PersonName(i))
+			ComboBoxCC2.Items.Add(PersonName(i))
+			ComboBoxCC3.Items.Add(PersonName(i))
+
+			' 설정창의 수신자
+			ConfForm.ComboBoxSend1.Items.Add(PersonName(i))
+			ConfForm.ComboBoxSend2.Items.Add(PersonName(i))
+			ConfForm.ComboBoxSend3.Items.Add(PersonName(i))
+
+			' 설정창의 참조자
+			ConfForm.ComboBoxCC1.Items.Add(PersonName(i))
+			ConfForm.ComboBoxCC2.Items.Add(PersonName(i))
+			ConfForm.ComboBoxCC3.Items.Add(PersonName(i))
+
+		Next
 
 		ProgressBar1.Style = ProgressBarStyle.Blocks
 		ProgressBar1.Maximum = 9
@@ -595,6 +593,110 @@ Public Class Main
 	Private Sub ButtonConf_Click(sender As Object, e As EventArgs) Handles ButtonConf.Click
 
 		ConfForm.ShowDialog()
+
+	End Sub
+
+	Private Sub ConfigMake()
+
+		Dim xml As New Text.StringBuilder
+		xml.Append("<?xml version=""1.0"" encoding=""UTF-8""?>" + vbCr)
+		xml.Append("<data>" + vbCr)
+		xml.Append("	<mail>" + vbCr)
+		xml.Append("		<host>gwm.bizmeka.com</host>" + vbCr)
+		xml.Append("		<port>587</port>" + vbCr)
+		xml.Append("		<ssl>True</ssl>" + vbCr)
+		xml.Append("	</mail>" + vbCr)
+		xml.Append("	<autoset>" + vbCr)
+		xml.Append("		<send>" + vbCr)
+		xml.Append("			<!-- 수신자 최대 3명까지 지원 -->" + vbCr)
+		xml.Append("			<name1>김인현</name1>" + vbCr)
+		xml.Append("			<name2></name2>" + vbCr)
+		xml.Append("			<name3></name3>" + vbCr)
+		xml.Append("		</send>" + vbCr)
+		xml.Append("		<cc>" + vbCr)
+		xml.Append("			<!-- 참조 최대 3명까지 지원 -->" + vbCr)
+		xml.Append("			<name1></name1>" + vbCr)
+		xml.Append("			<name2></name2>" + vbCr)
+		xml.Append("			<name3></name3>" + vbCr)
+		xml.Append("		</cc>" + vbCr)
+		xml.Append("		<attach>" + vbCr)
+		xml.Append("			<path>\\30.30.30.150\Storage_Hub\999.NAS_PORTAL\사업본부_37번_백업\개인자료\박성진\사업본부 2020 일일업무보고서 박성진.xlsm</path>" + vbCr)
+		xml.Append("		</attach>" + vbCr)
+		xml.Append("		<account>" + vbCr)
+		xml.Append("			<id></id>" + vbCr)
+		xml.Append("			<password></password>" + vbCr)
+		xml.Append("		</account>" + vbCr)
+		xml.Append("	</autoset>" + vbCr)
+		xml.Append("	<list>" + vbCr)
+		xml.Append("		<!-- 인원을 변경할 경우, 아래의 양식을 추가하고 요소에 맞는 값을 입력 -->" + vbCr)
+		xml.Append("		<address>" + vbCr)
+		xml.Append("			<!-- 초기화를 위한 공백값 -->" + vbCr)
+		xml.Append("			<name>" + vbCr)
+		xml.Append("				<!-- 이름 -->" + vbCr)
+		xml.Append("			</name>" + vbCr)
+		xml.Append("			<email>" + vbCr)
+		xml.Append("				<!-- 이메일 -->" + vbCr)
+		xml.Append("			</email>" + vbCr)
+		xml.Append("		</address>" + vbCr)
+		xml.Append("		<address>" + vbCr)
+		xml.Append("			<name>김인현</name>" + vbCr)
+		xml.Append("			<email>ihkim@ksic.net</email>" + vbCr)
+		xml.Append("		</address>" + vbCr)
+		xml.Append("		<address>" + vbCr)
+		xml.Append("			<name>김영미</name>" + vbCr)
+		xml.Append("			<email>ymkim@ksic.net</email>" + vbCr)
+		xml.Append("		</address>" + vbCr)
+		xml.Append("		<address>" + vbCr)
+		xml.Append("			<name>한동훈</name>" + vbCr)
+		xml.Append("			<email>dhhan@ksic.net</email>" + vbCr)
+		xml.Append("		</address>" + vbCr)
+		xml.Append("		<address>" + vbCr)
+		xml.Append("			<name>신규선</name>" + vbCr)
+		xml.Append("			<email>gsshin@ksic.net</email>" + vbCr)
+		xml.Append("		</address>" + vbCr)
+		xml.Append("		<address>" + vbCr)
+		xml.Append("			<name>전홍규</name>" + vbCr)
+		xml.Append("			<email>hkjeon82@ksic.net</email>" + vbCr)
+		xml.Append("		</address>" + vbCr)
+		xml.Append("		<address>" + vbCr)
+		xml.Append("			<name>박성진</name>" + vbCr)
+		xml.Append("			<email>psj1789@ksic.net</email>" + vbCr)
+		xml.Append("		</address>" + vbCr)
+		xml.Append("		<address>" + vbCr)
+		xml.Append("			<name>김호영</name>" + vbCr)
+		xml.Append("			<email>khy7206@ksic.net</email>" + vbCr)
+		xml.Append("		</address>" + vbCr)
+		xml.Append("		<address>" + vbCr)
+		xml.Append("			<name>KSIC 전체</name>" + vbCr)
+		xml.Append("			<email>all@ksic.net</email>" + vbCr)
+		xml.Append("		</address>" + vbCr)
+		xml.Append("		<address>" + vbCr)
+		xml.Append("			<name>연구소</name>" + vbCr)
+		xml.Append("			<email>lab@ksic.net</email>" + vbCr)
+		xml.Append("		</address>" + vbCr)
+		xml.Append("		<address>" + vbCr)
+		xml.Append("			<name>사업본부</name>" + vbCr)
+		xml.Append("			<email>business@ksic.net</email>" + vbCr)
+		xml.Append("		</address>" + vbCr)
+		xml.Append("		<address>" + vbCr)
+		xml.Append("			<name>경영</name>" + vbCr)
+		xml.Append("			<email>mts@ksic.net</email>" + vbCr)
+		xml.Append("		</address>" + vbCr)
+		xml.Append("		<address>" + vbCr)
+		xml.Append("			<name>영업</name>" + vbCr)
+		xml.Append("			<email>sales@ksic.net</email>" + vbCr)
+		xml.Append("		</address>" + vbCr)
+		xml.Append("		<address>" + vbCr)
+		xml.Append("			<name>기술지원</name>" + vbCr)
+		xml.Append("			<email>techsupport@ksic.net</email>" + vbCr)
+		xml.Append("		</address>" + vbCr)
+		xml.Append("	</list>" + vbCr)
+		xml.Append("</data>")
+
+		Dim file As IO.StreamWriter
+		file = My.Computer.FileSystem.OpenTextFileWriter(Config, True)
+		file.WriteLine(xml)
+		file.Close()
 
 	End Sub
 
