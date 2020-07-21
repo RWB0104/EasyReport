@@ -7,6 +7,12 @@ EasyReport Development
 
 일일이 쓰고 보내기 귀찮아서 직접 만든 보고서 메일 자동 작성 및 발송 프로그램
 
+## EasyReport 2.2.1 RELEASE
+
+2020.07.21 화요일 Update
+
++ 메일 반복 발송 시 COM 객체 분리 오류로 인한 재발송 실패 현상 개선
+
 ## EasyReport 2.2.0 RELEASE
 
 <p align="center">

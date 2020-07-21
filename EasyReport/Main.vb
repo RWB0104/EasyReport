@@ -27,7 +27,7 @@ Public Class Main
 	Public AutoID As String
 	Public AutoPwd As String
 
-	Public xls As New Excel.Application
+	Public xls
 	Public xworkbook As Excel.Workbook
 	Public xworksheet As Excel.Worksheet
 
@@ -278,6 +278,7 @@ Public Class Main
 
 		Try
 
+			xls = New Excel.Application
 			xls.Visible = True
 			xworkbook = xls.Workbooks.Open(TextBoxPath.Text)
 			xworksheet = xworkbook.Sheets(sheetname)
@@ -318,7 +319,7 @@ Public Class Main
 
 		Catch ex As Exception
 
-			MsgBox(ex.Message)
+			MsgBox(ex.StackTrace)
 			WorkDeny = True
 			Exit Sub
 
