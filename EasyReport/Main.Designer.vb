@@ -1,292 +1,216 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Main
-    Inherits System.Windows.Forms.Form
+	Inherits MetroFramework.Forms.MetroForm
 
-    'Form은 Dispose를 재정의하여 구성 요소 목록을 정리합니다.
-    <System.Diagnostics.DebuggerNonUserCode()>
-    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
-        Try
-            If disposing AndAlso components IsNot Nothing Then
-                components.Dispose()
-            End If
-        Finally
-            MyBase.Dispose(disposing)
-        End Try
-    End Sub
+	'Form은 Dispose를 재정의하여 구성 요소 목록을 정리합니다.
+	<System.Diagnostics.DebuggerNonUserCode()>
+	Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+		Try
+			If disposing AndAlso components IsNot Nothing Then
+				components.Dispose()
+			End If
+		Finally
+			MyBase.Dispose(disposing)
+		End Try
+	End Sub
 
-    'Windows Form 디자이너에 필요합니다.
-    Private components As System.ComponentModel.IContainer
+	'Windows Form 디자이너에 필요합니다.
+	Private components As System.ComponentModel.IContainer
 
-    '참고: 다음 프로시저는 Windows Form 디자이너에 필요합니다.
-    '수정하려면 Windows Form 디자이너를 사용하십시오.  
-    '코드 편집기에서는 수정하지 마세요.
-    <System.Diagnostics.DebuggerStepThrough()>
-    Private Sub InitializeComponent()
+	'참고: 다음 프로시저는 Windows Form 디자이너에 필요합니다.
+	'수정하려면 Windows Form 디자이너를 사용하십시오.  
+	'코드 편집기에서는 수정하지 마세요.
+	<System.Diagnostics.DebuggerStepThrough()>
+	Private Sub InitializeComponent()
+		Me.components = New System.ComponentModel.Container()
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
-		Me.ButtonGetDate = New System.Windows.Forms.Button()
-		Me.TextBoxDate = New System.Windows.Forms.TextBox()
-		Me.LabelSend1 = New System.Windows.Forms.Label()
-		Me.ComboBoxSend1 = New System.Windows.Forms.ComboBox()
-		Me.ComboBoxSend3 = New System.Windows.Forms.ComboBox()
-		Me.ComboBoxSend2 = New System.Windows.Forms.ComboBox()
-		Me.ComboBoxCC1 = New System.Windows.Forms.ComboBox()
-		Me.ComboBoxCC2 = New System.Windows.Forms.ComboBox()
-		Me.ComboBoxCC3 = New System.Windows.Forms.ComboBox()
-		Me.LabelCC2 = New System.Windows.Forms.Label()
-		Me.LabelCC3 = New System.Windows.Forms.Label()
-		Me.LabelCC1 = New System.Windows.Forms.Label()
-		Me.LabelSend3 = New System.Windows.Forms.Label()
-		Me.LabelSend2 = New System.Windows.Forms.Label()
 		Me.GroupBoxSend = New System.Windows.Forms.GroupBox()
-		Me.GroupBoxCC = New System.Windows.Forms.GroupBox()
-		Me.TextBoxTxt = New System.Windows.Forms.TextBox()
+		Me.LabelSend3 = New MetroFramework.Controls.MetroLabel()
+		Me.LabelSend2 = New MetroFramework.Controls.MetroLabel()
+		Me.LabelSend1 = New MetroFramework.Controls.MetroLabel()
+		Me.ComboBoxSend3 = New MetroFramework.Controls.MetroComboBox()
+		Me.ComboBoxSend2 = New MetroFramework.Controls.MetroComboBox()
+		Me.ComboBoxSend1 = New MetroFramework.Controls.MetroComboBox()
 		Me.GroupBoxText = New System.Windows.Forms.GroupBox()
+		Me.TextBoxTxt = New MetroFramework.Controls.MetroTextBox()
 		Me.GroupBoxGmail = New System.Windows.Forms.GroupBox()
-		Me.ButtonSend = New System.Windows.Forms.Button()
+		Me.ButtonSend = New MetroFramework.Controls.MetroButton()
+		Me.TextBoxPW = New MetroFramework.Controls.MetroTextBox()
+		Me.TextBoxID = New MetroFramework.Controls.MetroTextBox()
 		Me.LabelPW = New System.Windows.Forms.Label()
 		Me.LabelID = New System.Windows.Forms.Label()
-		Me.TextBoxPW = New System.Windows.Forms.TextBox()
-		Me.TextBoxID = New System.Windows.Forms.TextBox()
-		Me.ButtonCls = New System.Windows.Forms.Button()
-		Me.TextBoxPath = New System.Windows.Forms.TextBox()
-		Me.LabelFile = New System.Windows.Forms.Label()
-		Me.ButtonFile = New System.Windows.Forms.Button()
 		Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-		Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
 		Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
 		Me.LabelWork = New System.Windows.Forms.Label()
-		Me.ButtonShoot = New System.Windows.Forms.Button()
 		Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-		Me.ButtonOpen = New System.Windows.Forms.Button()
 		Me.LabelDev = New System.Windows.Forms.Label()
-		Me.ButtonConf = New System.Windows.Forms.Button()
+		Me.ButtonGetDate = New MetroFramework.Controls.MetroButton()
+		Me.TextBoxDate = New MetroFramework.Controls.MetroTextBox()
+		Me.GroupBoxCC = New System.Windows.Forms.GroupBox()
+		Me.LabelCC3 = New MetroFramework.Controls.MetroLabel()
+		Me.LabelCC2 = New MetroFramework.Controls.MetroLabel()
+		Me.LabelCC1 = New MetroFramework.Controls.MetroLabel()
+		Me.ComboBoxCC3 = New MetroFramework.Controls.MetroComboBox()
+		Me.ComboBoxCC2 = New MetroFramework.Controls.MetroComboBox()
+		Me.ComboBoxCC1 = New MetroFramework.Controls.MetroComboBox()
+		Me.LabelFile = New MetroFramework.Controls.MetroLabel()
+		Me.TextBoxPath = New MetroFramework.Controls.MetroTextBox()
+		Me.ButtonFile = New MetroFramework.Controls.MetroButton()
+		Me.ButtonOpen = New MetroFramework.Controls.MetroButton()
+		Me.ButtonConf = New MetroFramework.Controls.MetroButton()
+		Me.ButtonShoot = New MetroFramework.Controls.MetroButton()
+		Me.ButtonCls = New MetroFramework.Controls.MetroButton()
+		Me.ProgressBar1 = New MetroFramework.Controls.MetroProgressBar()
+		Me.MetroStyleManager1 = New MetroFramework.Components.MetroStyleManager(Me.components)
+		Me.ButtonDownload = New MetroFramework.Controls.MetroButton()
 		Me.GroupBoxSend.SuspendLayout()
-		Me.GroupBoxCC.SuspendLayout()
 		Me.GroupBoxText.SuspendLayout()
 		Me.GroupBoxGmail.SuspendLayout()
 		CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+		Me.GroupBoxCC.SuspendLayout()
+		CType(Me.MetroStyleManager1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
-		'
-		'ButtonGetDate
-		'
-		Me.ButtonGetDate.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.ButtonGetDate.Location = New System.Drawing.Point(12, 14)
-		Me.ButtonGetDate.Name = "ButtonGetDate"
-		Me.ButtonGetDate.Size = New System.Drawing.Size(75, 23)
-		Me.ButtonGetDate.TabIndex = 0
-		Me.ButtonGetDate.Text = "Date"
-		Me.ButtonGetDate.UseVisualStyleBackColor = True
-		'
-		'TextBoxDate
-		'
-		Me.TextBoxDate.Location = New System.Drawing.Point(100, 15)
-		Me.TextBoxDate.Name = "TextBoxDate"
-		Me.TextBoxDate.Size = New System.Drawing.Size(74, 21)
-		Me.TextBoxDate.TabIndex = 1
-		Me.TextBoxDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-		'
-		'LabelSend1
-		'
-		Me.LabelSend1.BackColor = System.Drawing.Color.White
-		Me.LabelSend1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-		Me.LabelSend1.Font = New System.Drawing.Font("굴림", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-		Me.LabelSend1.Location = New System.Drawing.Point(101, 20)
-		Me.LabelSend1.Name = "LabelSend1"
-		Me.LabelSend1.Size = New System.Drawing.Size(150, 20)
-		Me.LabelSend1.TabIndex = 3
-		'
-		'ComboBoxSend1
-		'
-		Me.ComboBoxSend1.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.ComboBoxSend1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.ComboBoxSend1.FormattingEnabled = True
-		Me.ComboBoxSend1.Location = New System.Drawing.Point(15, 20)
-		Me.ComboBoxSend1.Name = "ComboBoxSend1"
-		Me.ComboBoxSend1.Size = New System.Drawing.Size(80, 20)
-		Me.ComboBoxSend1.TabIndex = 4
-		'
-		'ComboBoxSend3
-		'
-		Me.ComboBoxSend3.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.ComboBoxSend3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.ComboBoxSend3.FormattingEnabled = True
-		Me.ComboBoxSend3.Location = New System.Drawing.Point(15, 72)
-		Me.ComboBoxSend3.Name = "ComboBoxSend3"
-		Me.ComboBoxSend3.Size = New System.Drawing.Size(80, 20)
-		Me.ComboBoxSend3.TabIndex = 5
-		'
-		'ComboBoxSend2
-		'
-		Me.ComboBoxSend2.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.ComboBoxSend2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.ComboBoxSend2.FormattingEnabled = True
-		Me.ComboBoxSend2.Location = New System.Drawing.Point(15, 46)
-		Me.ComboBoxSend2.Name = "ComboBoxSend2"
-		Me.ComboBoxSend2.Size = New System.Drawing.Size(80, 20)
-		Me.ComboBoxSend2.TabIndex = 6
-		'
-		'ComboBoxCC1
-		'
-		Me.ComboBoxCC1.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.ComboBoxCC1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.ComboBoxCC1.FormattingEnabled = True
-		Me.ComboBoxCC1.Location = New System.Drawing.Point(15, 20)
-		Me.ComboBoxCC1.Name = "ComboBoxCC1"
-		Me.ComboBoxCC1.Size = New System.Drawing.Size(80, 20)
-		Me.ComboBoxCC1.TabIndex = 7
-		'
-		'ComboBoxCC2
-		'
-		Me.ComboBoxCC2.BackColor = System.Drawing.SystemColors.Window
-		Me.ComboBoxCC2.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.ComboBoxCC2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.ComboBoxCC2.FormattingEnabled = True
-		Me.ComboBoxCC2.Location = New System.Drawing.Point(15, 46)
-		Me.ComboBoxCC2.Name = "ComboBoxCC2"
-		Me.ComboBoxCC2.Size = New System.Drawing.Size(80, 20)
-		Me.ComboBoxCC2.TabIndex = 8
-		'
-		'ComboBoxCC3
-		'
-		Me.ComboBoxCC3.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.ComboBoxCC3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.ComboBoxCC3.FormattingEnabled = True
-		Me.ComboBoxCC3.Location = New System.Drawing.Point(15, 72)
-		Me.ComboBoxCC3.Name = "ComboBoxCC3"
-		Me.ComboBoxCC3.Size = New System.Drawing.Size(80, 20)
-		Me.ComboBoxCC3.TabIndex = 9
-		'
-		'LabelCC2
-		'
-		Me.LabelCC2.BackColor = System.Drawing.Color.White
-		Me.LabelCC2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-		Me.LabelCC2.Font = New System.Drawing.Font("굴림", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-		Me.LabelCC2.Location = New System.Drawing.Point(101, 46)
-		Me.LabelCC2.Name = "LabelCC2"
-		Me.LabelCC2.Size = New System.Drawing.Size(150, 20)
-		Me.LabelCC2.TabIndex = 10
-		'
-		'LabelCC3
-		'
-		Me.LabelCC3.BackColor = System.Drawing.Color.White
-		Me.LabelCC3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-		Me.LabelCC3.Font = New System.Drawing.Font("굴림", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-		Me.LabelCC3.Location = New System.Drawing.Point(101, 72)
-		Me.LabelCC3.Name = "LabelCC3"
-		Me.LabelCC3.Size = New System.Drawing.Size(150, 20)
-		Me.LabelCC3.TabIndex = 11
-		'
-		'LabelCC1
-		'
-		Me.LabelCC1.BackColor = System.Drawing.Color.White
-		Me.LabelCC1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-		Me.LabelCC1.Font = New System.Drawing.Font("굴림", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-		Me.LabelCC1.Location = New System.Drawing.Point(101, 20)
-		Me.LabelCC1.Name = "LabelCC1"
-		Me.LabelCC1.Size = New System.Drawing.Size(150, 20)
-		Me.LabelCC1.TabIndex = 12
-		'
-		'LabelSend3
-		'
-		Me.LabelSend3.BackColor = System.Drawing.Color.White
-		Me.LabelSend3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-		Me.LabelSend3.Font = New System.Drawing.Font("굴림", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-		Me.LabelSend3.Location = New System.Drawing.Point(101, 72)
-		Me.LabelSend3.Name = "LabelSend3"
-		Me.LabelSend3.Size = New System.Drawing.Size(150, 20)
-		Me.LabelSend3.TabIndex = 13
-		'
-		'LabelSend2
-		'
-		Me.LabelSend2.BackColor = System.Drawing.Color.White
-		Me.LabelSend2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-		Me.LabelSend2.Font = New System.Drawing.Font("굴림", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-		Me.LabelSend2.Location = New System.Drawing.Point(101, 46)
-		Me.LabelSend2.Name = "LabelSend2"
-		Me.LabelSend2.Size = New System.Drawing.Size(150, 20)
-		Me.LabelSend2.TabIndex = 14
 		'
 		'GroupBoxSend
 		'
-		Me.GroupBoxSend.Controls.Add(Me.LabelSend1)
-		Me.GroupBoxSend.Controls.Add(Me.LabelSend2)
-		Me.GroupBoxSend.Controls.Add(Me.ComboBoxSend2)
 		Me.GroupBoxSend.Controls.Add(Me.LabelSend3)
-		Me.GroupBoxSend.Controls.Add(Me.ComboBoxSend1)
+		Me.GroupBoxSend.Controls.Add(Me.LabelSend2)
+		Me.GroupBoxSend.Controls.Add(Me.LabelSend1)
 		Me.GroupBoxSend.Controls.Add(Me.ComboBoxSend3)
-		Me.GroupBoxSend.Location = New System.Drawing.Point(19, 61)
+		Me.GroupBoxSend.Controls.Add(Me.ComboBoxSend2)
+		Me.GroupBoxSend.Controls.Add(Me.ComboBoxSend1)
+		Me.GroupBoxSend.Font = New System.Drawing.Font("맑은 고딕", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
+		Me.GroupBoxSend.Location = New System.Drawing.Point(19, 115)
 		Me.GroupBoxSend.Name = "GroupBoxSend"
-		Me.GroupBoxSend.Size = New System.Drawing.Size(266, 109)
+		Me.GroupBoxSend.Size = New System.Drawing.Size(294, 126)
 		Me.GroupBoxSend.TabIndex = 15
 		Me.GroupBoxSend.TabStop = False
 		Me.GroupBoxSend.Text = "수신자"
 		'
-		'GroupBoxCC
+		'LabelSend3
 		'
-		Me.GroupBoxCC.Controls.Add(Me.ComboBoxCC1)
-		Me.GroupBoxCC.Controls.Add(Me.ComboBoxCC2)
-		Me.GroupBoxCC.Controls.Add(Me.LabelCC3)
-		Me.GroupBoxCC.Controls.Add(Me.LabelCC1)
-		Me.GroupBoxCC.Controls.Add(Me.LabelCC2)
-		Me.GroupBoxCC.Controls.Add(Me.ComboBoxCC3)
-		Me.GroupBoxCC.Location = New System.Drawing.Point(19, 184)
-		Me.GroupBoxCC.Name = "GroupBoxCC"
-		Me.GroupBoxCC.Size = New System.Drawing.Size(266, 109)
-		Me.GroupBoxCC.TabIndex = 16
-		Me.GroupBoxCC.TabStop = False
-		Me.GroupBoxCC.Text = "참조"
+		Me.LabelSend3.Location = New System.Drawing.Point(129, 85)
+		Me.LabelSend3.Name = "LabelSend3"
+		Me.LabelSend3.Size = New System.Drawing.Size(154, 29)
+		Me.LabelSend3.TabIndex = 46
+		Me.LabelSend3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
 		'
-		'TextBoxTxt
+		'LabelSend2
 		'
-		Me.TextBoxTxt.Location = New System.Drawing.Point(14, 20)
-		Me.TextBoxTxt.Multiline = True
-		Me.TextBoxTxt.Name = "TextBoxTxt"
-		Me.TextBoxTxt.ScrollBars = System.Windows.Forms.ScrollBars.Both
-		Me.TextBoxTxt.Size = New System.Drawing.Size(138, 194)
-		Me.TextBoxTxt.TabIndex = 17
-		Me.TextBoxTxt.WordWrap = False
+		Me.LabelSend2.AccessibleRole = System.Windows.Forms.AccessibleRole.None
+		Me.LabelSend2.Location = New System.Drawing.Point(129, 50)
+		Me.LabelSend2.Name = "LabelSend2"
+		Me.LabelSend2.Size = New System.Drawing.Size(154, 29)
+		Me.LabelSend2.TabIndex = 45
+		Me.LabelSend2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+		'
+		'LabelSend1
+		'
+		Me.LabelSend1.Location = New System.Drawing.Point(129, 15)
+		Me.LabelSend1.Name = "LabelSend1"
+		Me.LabelSend1.Size = New System.Drawing.Size(154, 29)
+		Me.LabelSend1.TabIndex = 44
+		Me.LabelSend1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+		'
+		'ComboBoxSend3
+		'
+		Me.ComboBoxSend3.FontSize = MetroFramework.MetroLinkSize.Small
+		Me.ComboBoxSend3.FormattingEnabled = True
+		Me.ComboBoxSend3.ItemHeight = 19
+		Me.ComboBoxSend3.Location = New System.Drawing.Point(15, 89)
+		Me.ComboBoxSend3.Name = "ComboBoxSend3"
+		Me.ComboBoxSend3.Size = New System.Drawing.Size(103, 25)
+		Me.ComboBoxSend3.TabIndex = 43
+		'
+		'ComboBoxSend2
+		'
+		Me.ComboBoxSend2.FontSize = MetroFramework.MetroLinkSize.Small
+		Me.ComboBoxSend2.FormattingEnabled = True
+		Me.ComboBoxSend2.ItemHeight = 19
+		Me.ComboBoxSend2.Location = New System.Drawing.Point(15, 54)
+		Me.ComboBoxSend2.Name = "ComboBoxSend2"
+		Me.ComboBoxSend2.Size = New System.Drawing.Size(103, 25)
+		Me.ComboBoxSend2.TabIndex = 42
+		'
+		'ComboBoxSend1
+		'
+		Me.ComboBoxSend1.FontSize = MetroFramework.MetroLinkSize.Small
+		Me.ComboBoxSend1.ItemHeight = 19
+		Me.ComboBoxSend1.Location = New System.Drawing.Point(15, 19)
+		Me.ComboBoxSend1.Name = "ComboBoxSend1"
+		Me.ComboBoxSend1.Size = New System.Drawing.Size(103, 25)
+		Me.ComboBoxSend1.TabIndex = 41
 		'
 		'GroupBoxText
 		'
 		Me.GroupBoxText.Controls.Add(Me.TextBoxTxt)
-		Me.GroupBoxText.Location = New System.Drawing.Point(304, 60)
+		Me.GroupBoxText.Font = New System.Drawing.Font("맑은 고딕", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
+		Me.GroupBoxText.Location = New System.Drawing.Point(332, 115)
 		Me.GroupBoxText.Name = "GroupBoxText"
-		Me.GroupBoxText.Size = New System.Drawing.Size(167, 233)
+		Me.GroupBoxText.Size = New System.Drawing.Size(230, 274)
 		Me.GroupBoxText.TabIndex = 18
 		Me.GroupBoxText.TabStop = False
 		Me.GroupBoxText.Text = "추가 내용"
 		'
+		'TextBoxTxt
+		'
+		Me.TextBoxTxt.BackColor = System.Drawing.Color.White
+		Me.TextBoxTxt.CustomBackground = True
+		Me.TextBoxTxt.Location = New System.Drawing.Point(14, 22)
+		Me.TextBoxTxt.Multiline = True
+		Me.TextBoxTxt.Name = "TextBoxTxt"
+		Me.TextBoxTxt.Size = New System.Drawing.Size(203, 238)
+		Me.TextBoxTxt.TabIndex = 42
+		'
 		'GroupBoxGmail
 		'
 		Me.GroupBoxGmail.Controls.Add(Me.ButtonSend)
-		Me.GroupBoxGmail.Controls.Add(Me.LabelPW)
-		Me.GroupBoxGmail.Controls.Add(Me.LabelID)
 		Me.GroupBoxGmail.Controls.Add(Me.TextBoxPW)
 		Me.GroupBoxGmail.Controls.Add(Me.TextBoxID)
-		Me.GroupBoxGmail.Location = New System.Drawing.Point(19, 351)
+		Me.GroupBoxGmail.Controls.Add(Me.LabelPW)
+		Me.GroupBoxGmail.Controls.Add(Me.LabelID)
+		Me.GroupBoxGmail.Font = New System.Drawing.Font("맑은 고딕", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
+		Me.GroupBoxGmail.Location = New System.Drawing.Point(19, 447)
 		Me.GroupBoxGmail.Name = "GroupBoxGmail"
-		Me.GroupBoxGmail.Size = New System.Drawing.Size(266, 81)
+		Me.GroupBoxGmail.Size = New System.Drawing.Size(359, 81)
 		Me.GroupBoxGmail.TabIndex = 19
 		Me.GroupBoxGmail.TabStop = False
 		Me.GroupBoxGmail.Text = "G-Mail"
 		'
 		'ButtonSend
 		'
-		Me.ButtonSend.BackgroundImage = CType(resources.GetObject("ButtonSend.BackgroundImage"), System.Drawing.Image)
-		Me.ButtonSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-		Me.ButtonSend.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.ButtonSend.Location = New System.Drawing.Point(180, 20)
+		Me.ButtonSend.Highlight = True
+		Me.ButtonSend.Location = New System.Drawing.Point(272, 19)
 		Me.ButtonSend.Name = "ButtonSend"
-		Me.ButtonSend.Size = New System.Drawing.Size(75, 49)
-		Me.ButtonSend.TabIndex = 4
-		Me.ButtonSend.UseVisualStyleBackColor = True
+		Me.ButtonSend.Size = New System.Drawing.Size(75, 52)
+		Me.ButtonSend.TabIndex = 49
+		Me.ButtonSend.Text = "전송"
+		'
+		'TextBoxPW
+		'
+		Me.TextBoxPW.CustomBackground = True
+		Me.TextBoxPW.Location = New System.Drawing.Point(34, 48)
+		Me.TextBoxPW.Name = "TextBoxPW"
+		Me.TextBoxPW.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+		Me.TextBoxPW.Size = New System.Drawing.Size(232, 23)
+		Me.TextBoxPW.Style = MetroFramework.MetroColorStyle.Silver
+		Me.TextBoxPW.TabIndex = 50
+		'
+		'TextBoxID
+		'
+		Me.TextBoxID.CustomBackground = True
+		Me.TextBoxID.Location = New System.Drawing.Point(34, 19)
+		Me.TextBoxID.Name = "TextBoxID"
+		Me.TextBoxID.Size = New System.Drawing.Size(232, 23)
+		Me.TextBoxID.Style = MetroFramework.MetroColorStyle.Silver
+		Me.TextBoxID.TabIndex = 49
 		'
 		'LabelPW
 		'
 		Me.LabelPW.AutoSize = True
 		Me.LabelPW.Location = New System.Drawing.Point(6, 52)
 		Me.LabelPW.Name = "LabelPW"
-		Me.LabelPW.Size = New System.Drawing.Size(23, 12)
+		Me.LabelPW.Size = New System.Drawing.Size(25, 15)
 		Me.LabelPW.TabIndex = 3
 		Me.LabelPW.Text = "PW"
 		'
@@ -295,67 +219,9 @@ Partial Class Main
 		Me.LabelID.AutoSize = True
 		Me.LabelID.Location = New System.Drawing.Point(11, 24)
 		Me.LabelID.Name = "LabelID"
-		Me.LabelID.Size = New System.Drawing.Size(16, 12)
+		Me.LabelID.Size = New System.Drawing.Size(19, 15)
 		Me.LabelID.TabIndex = 2
 		Me.LabelID.Text = "ID"
-		'
-		'TextBoxPW
-		'
-		Me.TextBoxPW.Location = New System.Drawing.Point(34, 48)
-		Me.TextBoxPW.Name = "TextBoxPW"
-		Me.TextBoxPW.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-		Me.TextBoxPW.Size = New System.Drawing.Size(137, 21)
-		Me.TextBoxPW.TabIndex = 1
-		'
-		'TextBoxID
-		'
-		Me.TextBoxID.Location = New System.Drawing.Point(34, 20)
-		Me.TextBoxID.Name = "TextBoxID"
-		Me.TextBoxID.Size = New System.Drawing.Size(137, 21)
-		Me.TextBoxID.TabIndex = 0
-		'
-		'ButtonCls
-		'
-		Me.ButtonCls.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.ButtonCls.Location = New System.Drawing.Point(397, 409)
-		Me.ButtonCls.Name = "ButtonCls"
-		Me.ButtonCls.Size = New System.Drawing.Size(75, 23)
-		Me.ButtonCls.TabIndex = 20
-		Me.ButtonCls.Text = "Clear"
-		Me.ButtonCls.UseVisualStyleBackColor = True
-		'
-		'TextBoxPath
-		'
-		Me.TextBoxPath.Location = New System.Drawing.Point(76, 311)
-		Me.TextBoxPath.Name = "TextBoxPath"
-		Me.TextBoxPath.Size = New System.Drawing.Size(331, 21)
-		Me.TextBoxPath.TabIndex = 21
-		'
-		'LabelFile
-		'
-		Me.LabelFile.AutoSize = True
-		Me.LabelFile.Location = New System.Drawing.Point(17, 315)
-		Me.LabelFile.Name = "LabelFile"
-		Me.LabelFile.Size = New System.Drawing.Size(53, 12)
-		Me.LabelFile.TabIndex = 22
-		Me.LabelFile.Text = "첨부파일"
-		'
-		'ButtonFile
-		'
-		Me.ButtonFile.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.ButtonFile.Location = New System.Drawing.Point(413, 310)
-		Me.ButtonFile.Name = "ButtonFile"
-		Me.ButtonFile.Size = New System.Drawing.Size(26, 23)
-		Me.ButtonFile.TabIndex = 23
-		Me.ButtonFile.Text = "..."
-		Me.ButtonFile.UseVisualStyleBackColor = True
-		'
-		'ProgressBar1
-		'
-		Me.ProgressBar1.Location = New System.Drawing.Point(189, 14)
-		Me.ProgressBar1.Name = "ProgressBar1"
-		Me.ProgressBar1.Size = New System.Drawing.Size(167, 23)
-		Me.ProgressBar1.TabIndex = 25
 		'
 		'BackgroundWorker1
 		'
@@ -365,136 +231,276 @@ Partial Class Main
 		'LabelWork
 		'
 		Me.LabelWork.AutoSize = True
-		Me.LabelWork.Location = New System.Drawing.Point(302, 370)
+		Me.LabelWork.Location = New System.Drawing.Point(302, 466)
 		Me.LabelWork.Name = "LabelWork"
 		Me.LabelWork.Size = New System.Drawing.Size(0, 12)
 		Me.LabelWork.TabIndex = 26
 		'
-		'ButtonShoot
-		'
-		Me.ButtonShoot.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.ButtonShoot.Location = New System.Drawing.Point(304, 409)
-		Me.ButtonShoot.Name = "ButtonShoot"
-		Me.ButtonShoot.Size = New System.Drawing.Size(75, 23)
-		Me.ButtonShoot.TabIndex = 27
-		Me.ButtonShoot.Text = "Auto"
-		Me.ButtonShoot.UseVisualStyleBackColor = True
-		'
 		'PictureBox1
 		'
 		Me.PictureBox1.Image = Global.EasyReport.My.Resources.Resources.Form_Logo
-		Me.PictureBox1.Location = New System.Drawing.Point(362, 8)
+		Me.PictureBox1.Location = New System.Drawing.Point(441, 25)
 		Me.PictureBox1.Name = "PictureBox1"
 		Me.PictureBox1.Size = New System.Drawing.Size(121, 36)
 		Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
 		Me.PictureBox1.TabIndex = 28
 		Me.PictureBox1.TabStop = False
 		'
-		'ButtonOpen
-		'
-		Me.ButtonOpen.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.ButtonOpen.Location = New System.Drawing.Point(445, 310)
-		Me.ButtonOpen.Name = "ButtonOpen"
-		Me.ButtonOpen.Size = New System.Drawing.Size(26, 23)
-		Me.ButtonOpen.TabIndex = 36
-		Me.ButtonOpen.Text = "O"
-		Me.ButtonOpen.UseVisualStyleBackColor = True
-		'
 		'LabelDev
 		'
 		Me.LabelDev.AutoSize = True
 		Me.LabelDev.Font = New System.Drawing.Font("맑은 고딕", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-		Me.LabelDev.Location = New System.Drawing.Point(188, 443)
+		Me.LabelDev.Location = New System.Drawing.Point(234, 540)
 		Me.LabelDev.Name = "LabelDev"
 		Me.LabelDev.Size = New System.Drawing.Size(110, 15)
 		Me.LabelDev.TabIndex = 37
 		Me.LabelDev.Text = "Developed by RWB"
 		'
+		'ButtonGetDate
+		'
+		Me.ButtonGetDate.Location = New System.Drawing.Point(19, 68)
+		Me.ButtonGetDate.Name = "ButtonGetDate"
+		Me.ButtonGetDate.Size = New System.Drawing.Size(75, 24)
+		Me.ButtonGetDate.Style = MetroFramework.MetroColorStyle.Teal
+		Me.ButtonGetDate.TabIndex = 39
+		Me.ButtonGetDate.Text = "Date"
+		'
+		'TextBoxDate
+		'
+		Me.TextBoxDate.BackColor = System.Drawing.Color.White
+		Me.TextBoxDate.CustomBackground = True
+		Me.TextBoxDate.Location = New System.Drawing.Point(104, 69)
+		Me.TextBoxDate.Name = "TextBoxDate"
+		Me.TextBoxDate.Size = New System.Drawing.Size(86, 23)
+		Me.TextBoxDate.TabIndex = 40
+		Me.TextBoxDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		'
+		'GroupBoxCC
+		'
+		Me.GroupBoxCC.Controls.Add(Me.LabelCC3)
+		Me.GroupBoxCC.Controls.Add(Me.LabelCC2)
+		Me.GroupBoxCC.Controls.Add(Me.LabelCC1)
+		Me.GroupBoxCC.Controls.Add(Me.ComboBoxCC3)
+		Me.GroupBoxCC.Controls.Add(Me.ComboBoxCC2)
+		Me.GroupBoxCC.Controls.Add(Me.ComboBoxCC1)
+		Me.GroupBoxCC.Font = New System.Drawing.Font("맑은 고딕", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
+		Me.GroupBoxCC.Location = New System.Drawing.Point(19, 258)
+		Me.GroupBoxCC.Name = "GroupBoxCC"
+		Me.GroupBoxCC.Size = New System.Drawing.Size(294, 131)
+		Me.GroupBoxCC.TabIndex = 41
+		Me.GroupBoxCC.TabStop = False
+		Me.GroupBoxCC.Text = "참조"
+		'
+		'LabelCC3
+		'
+		Me.LabelCC3.Location = New System.Drawing.Point(129, 88)
+		Me.LabelCC3.Name = "LabelCC3"
+		Me.LabelCC3.Size = New System.Drawing.Size(154, 29)
+		Me.LabelCC3.TabIndex = 46
+		Me.LabelCC3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+		'
+		'LabelCC2
+		'
+		Me.LabelCC2.AccessibleRole = System.Windows.Forms.AccessibleRole.None
+		Me.LabelCC2.Location = New System.Drawing.Point(129, 53)
+		Me.LabelCC2.Name = "LabelCC2"
+		Me.LabelCC2.Size = New System.Drawing.Size(154, 29)
+		Me.LabelCC2.TabIndex = 45
+		Me.LabelCC2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+		'
+		'LabelCC1
+		'
+		Me.LabelCC1.Location = New System.Drawing.Point(129, 18)
+		Me.LabelCC1.Name = "LabelCC1"
+		Me.LabelCC1.Size = New System.Drawing.Size(154, 29)
+		Me.LabelCC1.TabIndex = 44
+		Me.LabelCC1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+		'
+		'ComboBoxCC3
+		'
+		Me.ComboBoxCC3.FontSize = MetroFramework.MetroLinkSize.Small
+		Me.ComboBoxCC3.FormattingEnabled = True
+		Me.ComboBoxCC3.ItemHeight = 19
+		Me.ComboBoxCC3.Location = New System.Drawing.Point(15, 92)
+		Me.ComboBoxCC3.Name = "ComboBoxCC3"
+		Me.ComboBoxCC3.Size = New System.Drawing.Size(103, 25)
+		Me.ComboBoxCC3.TabIndex = 43
+		'
+		'ComboBoxCC2
+		'
+		Me.ComboBoxCC2.FontSize = MetroFramework.MetroLinkSize.Small
+		Me.ComboBoxCC2.FormattingEnabled = True
+		Me.ComboBoxCC2.ItemHeight = 19
+		Me.ComboBoxCC2.Location = New System.Drawing.Point(15, 57)
+		Me.ComboBoxCC2.Name = "ComboBoxCC2"
+		Me.ComboBoxCC2.Size = New System.Drawing.Size(103, 25)
+		Me.ComboBoxCC2.TabIndex = 42
+		'
+		'ComboBoxCC1
+		'
+		Me.ComboBoxCC1.FontSize = MetroFramework.MetroLinkSize.Small
+		Me.ComboBoxCC1.FormattingEnabled = True
+		Me.ComboBoxCC1.ItemHeight = 19
+		Me.ComboBoxCC1.Location = New System.Drawing.Point(15, 22)
+		Me.ComboBoxCC1.Name = "ComboBoxCC1"
+		Me.ComboBoxCC1.Size = New System.Drawing.Size(103, 25)
+		Me.ComboBoxCC1.TabIndex = 41
+		'
+		'LabelFile
+		'
+		Me.LabelFile.AutoSize = True
+		Me.LabelFile.Location = New System.Drawing.Point(19, 407)
+		Me.LabelFile.Name = "LabelFile"
+		Me.LabelFile.Size = New System.Drawing.Size(65, 19)
+		Me.LabelFile.TabIndex = 42
+		Me.LabelFile.Text = "첨부파일"
+		'
+		'TextBoxPath
+		'
+		Me.TextBoxPath.CustomBackground = True
+		Me.TextBoxPath.Location = New System.Drawing.Point(104, 407)
+		Me.TextBoxPath.Name = "TextBoxPath"
+		Me.TextBoxPath.Size = New System.Drawing.Size(367, 23)
+		Me.TextBoxPath.TabIndex = 43
+		'
+		'ButtonFile
+		'
+		Me.ButtonFile.Location = New System.Drawing.Point(470, 407)
+		Me.ButtonFile.Name = "ButtonFile"
+		Me.ButtonFile.Size = New System.Drawing.Size(36, 23)
+		Me.ButtonFile.TabIndex = 44
+		Me.ButtonFile.Text = "..."
+		'
+		'ButtonOpen
+		'
+		Me.ButtonOpen.Location = New System.Drawing.Point(526, 407)
+		Me.ButtonOpen.Name = "ButtonOpen"
+		Me.ButtonOpen.Size = New System.Drawing.Size(36, 23)
+		Me.ButtonOpen.TabIndex = 45
+		Me.ButtonOpen.Text = "열기"
+		'
 		'ButtonConf
 		'
-		Me.ButtonConf.Location = New System.Drawing.Point(397, 371)
+		Me.ButtonConf.Location = New System.Drawing.Point(487, 499)
 		Me.ButtonConf.Name = "ButtonConf"
-		Me.ButtonConf.Size = New System.Drawing.Size(75, 23)
-		Me.ButtonConf.TabIndex = 38
-		Me.ButtonConf.Text = "Config"
-		Me.ButtonConf.UseVisualStyleBackColor = True
+		Me.ButtonConf.Size = New System.Drawing.Size(75, 29)
+		Me.ButtonConf.TabIndex = 46
+		Me.ButtonConf.Text = "설정"
+		'
+		'ButtonShoot
+		'
+		Me.ButtonShoot.Location = New System.Drawing.Point(396, 499)
+		Me.ButtonShoot.Name = "ButtonShoot"
+		Me.ButtonShoot.Size = New System.Drawing.Size(75, 29)
+		Me.ButtonShoot.TabIndex = 47
+		Me.ButtonShoot.Text = "자동"
+		'
+		'ButtonCls
+		'
+		Me.ButtonCls.Location = New System.Drawing.Point(396, 455)
+		Me.ButtonCls.Name = "ButtonCls"
+		Me.ButtonCls.Size = New System.Drawing.Size(75, 31)
+		Me.ButtonCls.TabIndex = 48
+		Me.ButtonCls.Text = "초기화"
+		'
+		'ProgressBar1
+		'
+		Me.ProgressBar1.Location = New System.Drawing.Point(199, 69)
+		Me.ProgressBar1.Name = "ProgressBar1"
+		Me.ProgressBar1.Size = New System.Drawing.Size(363, 23)
+		Me.ProgressBar1.TabIndex = 53
+		'
+		'MetroStyleManager1
+		'
+		Me.MetroStyleManager1.Owner = Me
+		Me.MetroStyleManager1.Style = MetroFramework.MetroColorStyle.Blue
+		Me.MetroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Light
+		'
+		'ButtonDownload
+		'
+		Me.ButtonDownload.Location = New System.Drawing.Point(487, 455)
+		Me.ButtonDownload.Name = "ButtonDownload"
+		Me.ButtonDownload.Size = New System.Drawing.Size(75, 31)
+		Me.ButtonDownload.TabIndex = 55
+		Me.ButtonDownload.Text = "보고서 양식"
 		'
 		'Main
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 12.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-		Me.BackColor = System.Drawing.SystemColors.Control
-		Me.ClientSize = New System.Drawing.Size(484, 461)
-		Me.Controls.Add(Me.ButtonConf)
-		Me.Controls.Add(Me.LabelDev)
-		Me.Controls.Add(Me.ButtonOpen)
-		Me.Controls.Add(Me.PictureBox1)
-		Me.Controls.Add(Me.ButtonShoot)
-		Me.Controls.Add(Me.LabelWork)
+		Me.ClientSize = New System.Drawing.Size(581, 569)
+		Me.Controls.Add(Me.ButtonDownload)
 		Me.Controls.Add(Me.ProgressBar1)
-		Me.Controls.Add(Me.ButtonFile)
-		Me.Controls.Add(Me.LabelFile)
-		Me.Controls.Add(Me.TextBoxPath)
 		Me.Controls.Add(Me.ButtonCls)
-		Me.Controls.Add(Me.GroupBoxGmail)
-		Me.Controls.Add(Me.GroupBoxText)
+		Me.Controls.Add(Me.ButtonShoot)
+		Me.Controls.Add(Me.ButtonConf)
+		Me.Controls.Add(Me.ButtonOpen)
+		Me.Controls.Add(Me.ButtonFile)
+		Me.Controls.Add(Me.TextBoxPath)
+		Me.Controls.Add(Me.LabelFile)
+		Me.Controls.Add(Me.GroupBoxCC)
 		Me.Controls.Add(Me.TextBoxDate)
 		Me.Controls.Add(Me.ButtonGetDate)
+		Me.Controls.Add(Me.LabelDev)
+		Me.Controls.Add(Me.PictureBox1)
+		Me.Controls.Add(Me.LabelWork)
+		Me.Controls.Add(Me.GroupBoxGmail)
+		Me.Controls.Add(Me.GroupBoxText)
 		Me.Controls.Add(Me.GroupBoxSend)
-		Me.Controls.Add(Me.GroupBoxCC)
 		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
 		Me.MaximizeBox = False
 		Me.Name = "Main"
-		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+		Me.Resizable = False
 		Me.Text = "EasyReport"
 		Me.GroupBoxSend.ResumeLayout(False)
-		Me.GroupBoxCC.ResumeLayout(False)
 		Me.GroupBoxText.ResumeLayout(False)
-		Me.GroupBoxText.PerformLayout()
 		Me.GroupBoxGmail.ResumeLayout(False)
 		Me.GroupBoxGmail.PerformLayout()
 		CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+		Me.GroupBoxCC.ResumeLayout(False)
+		CType(Me.MetroStyleManager1, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
 	End Sub
-
-	Friend WithEvents ButtonGetDate As Button
-    Friend WithEvents TextBoxDate As TextBox
-    Friend WithEvents LabelSend1 As Label
-    Friend WithEvents ComboBoxSend1 As ComboBox
-    Friend WithEvents ComboBoxSend3 As ComboBox
-    Friend WithEvents ComboBoxSend2 As ComboBox
-    Friend WithEvents ComboBoxCC1 As ComboBox
-    Friend WithEvents ComboBoxCC2 As ComboBox
-    Friend WithEvents ComboBoxCC3 As ComboBox
-    Friend WithEvents LabelCC2 As Label
-    Friend WithEvents LabelCC3 As Label
-    Friend WithEvents LabelCC1 As Label
-    Friend WithEvents LabelSend3 As Label
-    Friend WithEvents LabelSend2 As Label
-    Friend WithEvents GroupBoxSend As GroupBox
-    Friend WithEvents GroupBoxCC As GroupBox
-    Friend WithEvents TextBoxTxt As TextBox
-    Friend WithEvents GroupBoxText As GroupBox
-    Friend WithEvents GroupBoxGmail As GroupBox
-    Friend WithEvents TextBoxPW As TextBox
-    Friend WithEvents TextBoxID As TextBox
-    Friend WithEvents ButtonSend As Button
-    Friend WithEvents LabelPW As Label
-    Friend WithEvents LabelID As Label
-    Friend WithEvents ButtonCls As Button
-    Friend WithEvents TextBoxPath As TextBox
-    Friend WithEvents LabelFile As Label
-    Friend WithEvents ButtonFile As Button
-    Friend WithEvents OpenFileDialog1 As OpenFileDialog
-    Friend WithEvents ProgressBar1 As ProgressBar
-    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
-    Friend WithEvents LabelWork As Label
-    Friend WithEvents ButtonShoot As Button
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents ButtonOpen As Button
-    Friend WithEvents LabelDev As Label
-    Friend WithEvents ButtonConf As Button
+	Friend WithEvents GroupBoxSend As GroupBox
+	Friend WithEvents GroupBoxText As GroupBox
+	Friend WithEvents GroupBoxGmail As GroupBox
+	Friend WithEvents LabelPW As Label
+	Friend WithEvents LabelID As Label
+	Friend WithEvents OpenFileDialog1 As OpenFileDialog
+	Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+	Friend WithEvents LabelWork As Label
+	Friend WithEvents PictureBox1 As PictureBox
+	Friend WithEvents LabelDev As Label
+	Friend WithEvents ButtonGetDate As MetroFramework.Controls.MetroButton
+	Friend WithEvents TextBoxDate As MetroFramework.Controls.MetroTextBox
+	Friend WithEvents ComboBoxSend1 As MetroFramework.Controls.MetroComboBox
+	Friend WithEvents ComboBoxSend2 As MetroFramework.Controls.MetroComboBox
+	Friend WithEvents ComboBoxSend3 As MetroFramework.Controls.MetroComboBox
+	Friend WithEvents LabelSend2 As MetroFramework.Controls.MetroLabel
+	Friend WithEvents LabelSend1 As MetroFramework.Controls.MetroLabel
+	Friend WithEvents LabelSend3 As MetroFramework.Controls.MetroLabel
+	Friend WithEvents GroupBoxCC As GroupBox
+	Friend WithEvents LabelCC3 As MetroFramework.Controls.MetroLabel
+	Friend WithEvents LabelCC2 As MetroFramework.Controls.MetroLabel
+	Friend WithEvents LabelCC1 As MetroFramework.Controls.MetroLabel
+	Friend WithEvents ComboBoxCC3 As MetroFramework.Controls.MetroComboBox
+	Friend WithEvents ComboBoxCC2 As MetroFramework.Controls.MetroComboBox
+	Friend WithEvents ComboBoxCC1 As MetroFramework.Controls.MetroComboBox
+	Friend WithEvents TextBoxTxt As MetroFramework.Controls.MetroTextBox
+	Friend WithEvents LabelFile As MetroFramework.Controls.MetroLabel
+	Friend WithEvents TextBoxPath As MetroFramework.Controls.MetroTextBox
+	Friend WithEvents ButtonFile As MetroFramework.Controls.MetroButton
+	Friend WithEvents ButtonOpen As MetroFramework.Controls.MetroButton
+	Friend WithEvents ButtonShoot As MetroFramework.Controls.MetroButton
+	Friend WithEvents ButtonCls As MetroFramework.Controls.MetroButton
+	Friend WithEvents ButtonSend As MetroFramework.Controls.MetroButton
+	Friend WithEvents TextBoxPW As MetroFramework.Controls.MetroTextBox
+	Friend WithEvents TextBoxID As MetroFramework.Controls.MetroTextBox
+	Friend WithEvents ButtonConf As MetroFramework.Controls.MetroButton
+	Friend WithEvents ProgressBar1 As MetroFramework.Controls.MetroProgressBar
+	Public WithEvents MetroStyleManager1 As MetroFramework.Components.MetroStyleManager
+	Friend WithEvents ButtonDownload As MetroFramework.Controls.MetroButton
 End Class

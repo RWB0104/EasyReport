@@ -7,6 +7,33 @@ EasyReport Development
 
 일일이 쓰고 보내기 귀찮아서 직접 만든 보고서 메일 자동 작성 및 발송 프로그램
 
+# INFO
+
+개발언어 : `Visual Basic`
+
+#### 지원 OS
++ Microsoft **Windows10**
+
+#### Framework
++ **.NET Framework 4.7.2**
++ **Metro UI**
+
+<br />
+<br />
+
+# RELEASE
+
+## EasyReport 3.0.0 RELEASE
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/50317129/90201533-1ae3b980-de16-11ea-96e3-8c9c8250ff66.png" width="40%" height="40%" alt="EasyReport" title="EasyReport" />
+</p>
+
+2020.08.14 금요일
+
++ Metro UI 적용을 통한 UI 개선
++ 보고서 엑셀 양식 다운로드 기능 추가
+
 ## EasyReport 2.3.0 RELEASE
 
 2020.07.21 화요일 Update
@@ -23,7 +50,7 @@ EasyReport Development
 ## EasyReport 2.2.0 RELEASE
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/50317129/87893791-e2052e80-ca7b-11ea-9dd6-aed96a01f9e7.png" width="40%" height="40%" alt="EasyReport" title="EasyReport">
+	<img src="https://user-images.githubusercontent.com/50317129/87893791-e2052e80-ca7b-11ea-9dd6-aed96a01f9e7.png" width="40%" height="40%" alt="EasyReport" title="EasyReport" />
 </p>
 
 2020.07.20 월요일 Update
@@ -54,16 +81,6 @@ EasyReport Development
 
 + 일부 UI 개선
 Control 위치와 크기 조절로 일부 UI의 가독성 개선
-
-# INFO
-
-개발언어 : `Visual Basic`
-
-#### 지원 OS
-+ Microsoft **Windows10**
-
-#### NET Framework
-+ **.NET Framework 4.7.2**
 
 ---
 ### 사용 방법

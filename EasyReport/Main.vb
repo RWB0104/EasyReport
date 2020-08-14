@@ -46,7 +46,7 @@ Public Class Main
 	End Sub
 
 	' 날짜 검증
-	Private Sub TextBoxDate_LostFocus(sender As Object, e As EventArgs) Handles TextBoxDate.LostFocus
+	Private Sub TextBoxDate_LostFocus(sender As Object, e As EventArgs)
 
 		' 날짜 형식이 아니거나 빈 칸일 경우
 		If Not IsDate(TextBoxDate.Text) And Not TextBoxDate.Text = "" Then
@@ -155,14 +155,13 @@ Public Class Main
 
 		Next
 
-		ProgressBar1.Style = ProgressBarStyle.Blocks
 		ProgressBar1.Maximum = 9
 		ProgressBar1.Step = 1
 
 	End Sub
 
 	' 수신자1 메일주소 표시
-	Private Sub ComboBoxSend1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxSend1.SelectedIndexChanged
+	Private Sub ComboBoxSend1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxSend1.SelectedIndexChanged, ComboBoxSend1.SelectedIndexChanged
 
 		LabelSend1.Text = PersonMail(ComboBoxSend1.SelectedIndex)
 
@@ -299,13 +298,13 @@ Public Class Main
 
 						If charArr(1) = "." And charArr(2) = " " Then
 
-							xlotno += vbCrLf & xworksheet.Cells(BF + i, 3).Value & vbCrLf
+							xlotno += vbCrLf & "<p style=""font-family: 맑은 고딕; font-size:  14px;"">" & xworksheet.Cells(BF + i, 3).Value & "</p>" & vbCrLf
 
 						End If
 
 					Else
 
-						xlotno += xworksheet.Cells(BF + i, 3).Value & vbCrLf
+						xlotno += "<p style=""font-family: 맑은 고딕; font-size:  14px;"">" & xworksheet.Cells(BF + i, 3).Value & "</p>" & vbCrLf
 
 					End If
 
@@ -442,13 +441,14 @@ Public Class Main
 		Try
 
 			mail.Subject = TextBoxDate.Text & " " & WeekdayName(Weekday(TextBoxDate.Text)) & " 일일업무 보고입니다."
-			mail.Body = "안녕하십니까." & vbCrLf &
-							workerPart & " " & workerName & "입니다." & vbCrLf & vbCrLf &
-							TextBoxDate.Text & " " & WeekdayName(Weekday(TextBoxDate.Text)) & " 일일업무 보고입니다." & vbCrLf &
-							xlotno & vbCrLf &
-							TextBoxTxt.Text & vbCrLf & vbCrLf &
-							"이상입니다." & vbCrLf & vbCrLf & vbCrLf &
-							workerName & " 드림"
+			mail.IsBodyHtml = True
+			mail.Body = "<p style=""font-family: 맑은 고딕; font-size:  14px;"">안녕하십니까.</p><br />" &
+							"<p style=""font-family: 맑은 고딕; font-size:  14px;"">" & workerPart & " " & workerName & "입니다.</p><br /><br />" &
+							"<p style=""font-family: 맑은 고딕; font-size:  14px;"">" & TextBoxDate.Text & " " & WeekdayName(Weekday(TextBoxDate.Text)) & " 일일업무 보고입니다.</p><br />" &
+							xlotno & "<br />" &
+							"<p style=""font-family: 맑은 고딕; font-size:  14px;"">" & TextBoxTxt.Text & "</p><br /><br />" &
+							"<p style=""font-family: 맑은 고딕; font-size:  14px;"">이상입니다.</p><br /><br /><br />" &
+							"<p style=""font-family: 맑은 고딕; font-size:  14px;"">" & workerName & " 드림</p>"
 
 		Catch ex As Exception
 
@@ -697,6 +697,23 @@ Public Class Main
 		file = My.Computer.FileSystem.OpenTextFileWriter(Config, True)
 		file.WriteLine(xml)
 		file.Close()
+
+	End Sub
+
+	Private Sub Send_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxPW.KeyDown, TextBoxID.KeyDown
+
+		' 엔터키를 누를 경우
+		If e.KeyCode = Keys.Return Then
+
+			ButtonSend_Click(sender, New EventArgs())
+
+		End If
+
+	End Sub
+
+	Private Sub ButtonDownload_Click(sender As Object, e As EventArgs) Handles ButtonDownload.Click
+
+		Process.Start("https://github.com/RWB0104/EasyReport/raw/master/Documents/%EC%9D%BC%EC%9D%BC%EC%97%85%EB%AC%B4%EB%B3%B4%EA%B3%A0%EC%84%9C.xlsm")
 
 	End Sub
 

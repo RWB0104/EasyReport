@@ -1,9 +1,9 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class Configure
-    Inherits System.Windows.Forms.Form
+	Inherits MetroFramework.Forms.MetroForm
 
-    'Form은 Dispose를 재정의하여 구성 요소 목록을 정리합니다.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+	'Form은 Dispose를 재정의하여 구성 요소 목록을 정리합니다.
+	<System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -23,270 +23,253 @@ Partial Class Configure
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Configure))
-		Me.ButtonSave = New System.Windows.Forms.Button()
-		Me.ButtonCancel = New System.Windows.Forms.Button()
-		Me.ComboBoxSend1 = New System.Windows.Forms.ComboBox()
-		Me.ComboBoxSend2 = New System.Windows.Forms.ComboBox()
-		Me.ComboBoxSend3 = New System.Windows.Forms.ComboBox()
-		Me.ComboBoxCC1 = New System.Windows.Forms.ComboBox()
-		Me.ComboBoxCC2 = New System.Windows.Forms.ComboBox()
-		Me.ComboBoxCC3 = New System.Windows.Forms.ComboBox()
-		Me.LabelSend1 = New System.Windows.Forms.Label()
-		Me.LabelSend2 = New System.Windows.Forms.Label()
-		Me.LabelSend3 = New System.Windows.Forms.Label()
-		Me.LabelCC4 = New System.Windows.Forms.Label()
-		Me.LabelCC5 = New System.Windows.Forms.Label()
-		Me.LabelCC6 = New System.Windows.Forms.Label()
-		Me.TextBoxID = New System.Windows.Forms.TextBox()
-		Me.TextBoxPwd = New System.Windows.Forms.TextBox()
-		Me.TextBoxFile = New System.Windows.Forms.TextBox()
-		Me.LabelID = New System.Windows.Forms.Label()
-		Me.LabelPwd = New System.Windows.Forms.Label()
-		Me.LabelFile = New System.Windows.Forms.Label()
-		Me.ButtonPath = New System.Windows.Forms.Button()
 		Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-		Me.LabelHost = New System.Windows.Forms.Label()
-		Me.TextBoxHost = New System.Windows.Forms.TextBox()
-		Me.LabelPort = New System.Windows.Forms.Label()
-		Me.TextBoxPort = New System.Windows.Forms.TextBox()
-		Me.LabelSSL = New System.Windows.Forms.Label()
-		Me.RadioButtonTrue = New System.Windows.Forms.RadioButton()
-		Me.RadioButtonFalse = New System.Windows.Forms.RadioButton()
+		Me.LabelPort = New MetroFramework.Controls.MetroLabel()
+		Me.LabelHost = New MetroFramework.Controls.MetroLabel()
+		Me.LabelSSL = New MetroFramework.Controls.MetroLabel()
+		Me.LabelSend1 = New MetroFramework.Controls.MetroLabel()
+		Me.LabelSend2 = New MetroFramework.Controls.MetroLabel()
+		Me.LabelSend3 = New MetroFramework.Controls.MetroLabel()
+		Me.LabelCC3 = New MetroFramework.Controls.MetroLabel()
+		Me.LabelCC2 = New MetroFramework.Controls.MetroLabel()
+		Me.LabelCC1 = New MetroFramework.Controls.MetroLabel()
+		Me.LabelID = New MetroFramework.Controls.MetroLabel()
+		Me.LabelPW = New MetroFramework.Controls.MetroLabel()
+		Me.LabelFile = New MetroFramework.Controls.MetroLabel()
+		Me.TextBoxHost = New MetroFramework.Controls.MetroTextBox()
+		Me.TextBoxPort = New MetroFramework.Controls.MetroTextBox()
+		Me.TextBoxID = New MetroFramework.Controls.MetroTextBox()
+		Me.TextBoxPwd = New MetroFramework.Controls.MetroTextBox()
+		Me.TextBoxFile = New MetroFramework.Controls.MetroTextBox()
+		Me.ComboBoxSend1 = New MetroFramework.Controls.MetroComboBox()
+		Me.ComboBoxSend2 = New MetroFramework.Controls.MetroComboBox()
+		Me.ComboBoxSend3 = New MetroFramework.Controls.MetroComboBox()
+		Me.ComboBoxCC1 = New MetroFramework.Controls.MetroComboBox()
+		Me.ComboBoxCC2 = New MetroFramework.Controls.MetroComboBox()
+		Me.ComboBoxCC3 = New MetroFramework.Controls.MetroComboBox()
+		Me.RadioButtonTrue = New MetroFramework.Controls.MetroRadioButton()
+		Me.RadioButtonFalse = New MetroFramework.Controls.MetroRadioButton()
+		Me.ButtonSave = New MetroFramework.Controls.MetroButton()
+		Me.ButtonPath = New MetroFramework.Controls.MetroButton()
+		Me.ButtonCancel = New MetroFramework.Controls.MetroButton()
 		Me.SuspendLayout()
 		'
-		'ButtonSave
+		'LabelPort
 		'
-		Me.ButtonSave.Location = New System.Drawing.Point(84, 340)
-		Me.ButtonSave.Name = "ButtonSave"
-		Me.ButtonSave.Size = New System.Drawing.Size(75, 23)
-		Me.ButtonSave.TabIndex = 0
-		Me.ButtonSave.Text = "Save"
-		Me.ButtonSave.UseVisualStyleBackColor = True
+		Me.LabelPort.AutoSize = True
+		Me.LabelPort.Location = New System.Drawing.Point(20, 62)
+		Me.LabelPort.Name = "LabelPort"
+		Me.LabelPort.Size = New System.Drawing.Size(72, 19)
+		Me.LabelPort.TabIndex = 28
+		Me.LabelPort.Text = "SMTP Port"
 		'
-		'ButtonCancel
+		'LabelHost
 		'
-		Me.ButtonCancel.Location = New System.Drawing.Point(222, 340)
-		Me.ButtonCancel.Name = "ButtonCancel"
-		Me.ButtonCancel.Size = New System.Drawing.Size(75, 23)
-		Me.ButtonCancel.TabIndex = 1
-		Me.ButtonCancel.Text = "Cancel"
-		Me.ButtonCancel.UseVisualStyleBackColor = True
+		Me.LabelHost.AutoSize = True
+		Me.LabelHost.Location = New System.Drawing.Point(19, 31)
+		Me.LabelHost.Name = "LabelHost"
+		Me.LabelHost.Size = New System.Drawing.Size(73, 19)
+		Me.LabelHost.TabIndex = 29
+		Me.LabelHost.Text = "SMTP Host"
 		'
-		'ComboBoxSend1
+		'LabelSSL
 		'
-		Me.ComboBoxSend1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.ComboBoxSend1.FormattingEnabled = True
-		Me.ComboBoxSend1.Location = New System.Drawing.Point(84, 120)
-		Me.ComboBoxSend1.Name = "ComboBoxSend1"
-		Me.ComboBoxSend1.Size = New System.Drawing.Size(65, 20)
-		Me.ComboBoxSend1.TabIndex = 2
-		'
-		'ComboBoxSend2
-		'
-		Me.ComboBoxSend2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.ComboBoxSend2.FormattingEnabled = True
-		Me.ComboBoxSend2.Location = New System.Drawing.Point(84, 156)
-		Me.ComboBoxSend2.Name = "ComboBoxSend2"
-		Me.ComboBoxSend2.Size = New System.Drawing.Size(65, 20)
-		Me.ComboBoxSend2.TabIndex = 3
-		'
-		'ComboBoxSend3
-		'
-		Me.ComboBoxSend3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.ComboBoxSend3.FormattingEnabled = True
-		Me.ComboBoxSend3.Location = New System.Drawing.Point(84, 193)
-		Me.ComboBoxSend3.Name = "ComboBoxSend3"
-		Me.ComboBoxSend3.Size = New System.Drawing.Size(65, 20)
-		Me.ComboBoxSend3.TabIndex = 4
-		'
-		'ComboBoxCC1
-		'
-		Me.ComboBoxCC1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.ComboBoxCC1.FormattingEnabled = True
-		Me.ComboBoxCC1.Location = New System.Drawing.Point(283, 120)
-		Me.ComboBoxCC1.Name = "ComboBoxCC1"
-		Me.ComboBoxCC1.Size = New System.Drawing.Size(65, 20)
-		Me.ComboBoxCC1.TabIndex = 5
-		'
-		'ComboBoxCC2
-		'
-		Me.ComboBoxCC2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.ComboBoxCC2.FormattingEnabled = True
-		Me.ComboBoxCC2.Location = New System.Drawing.Point(283, 156)
-		Me.ComboBoxCC2.Name = "ComboBoxCC2"
-		Me.ComboBoxCC2.Size = New System.Drawing.Size(65, 20)
-		Me.ComboBoxCC2.TabIndex = 6
-		'
-		'ComboBoxCC3
-		'
-		Me.ComboBoxCC3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.ComboBoxCC3.FormattingEnabled = True
-		Me.ComboBoxCC3.Location = New System.Drawing.Point(283, 193)
-		Me.ComboBoxCC3.Name = "ComboBoxCC3"
-		Me.ComboBoxCC3.Size = New System.Drawing.Size(65, 20)
-		Me.ComboBoxCC3.TabIndex = 7
+		Me.LabelSSL.AutoSize = True
+		Me.LabelSSL.Location = New System.Drawing.Point(25, 92)
+		Me.LabelSSL.Name = "LabelSSL"
+		Me.LabelSSL.Size = New System.Drawing.Size(67, 19)
+		Me.LabelSSL.TabIndex = 30
+		Me.LabelSSL.Text = "SMTP SSL"
 		'
 		'LabelSend1
 		'
 		Me.LabelSend1.AutoSize = True
-		Me.LabelSend1.Location = New System.Drawing.Point(23, 123)
+		Me.LabelSend1.Location = New System.Drawing.Point(36, 138)
 		Me.LabelSend1.Name = "LabelSend1"
-		Me.LabelSend1.Size = New System.Drawing.Size(47, 12)
-		Me.LabelSend1.TabIndex = 8
+		Me.LabelSend1.Size = New System.Drawing.Size(56, 19)
+		Me.LabelSend1.TabIndex = 31
 		Me.LabelSend1.Text = "수신자1"
 		'
 		'LabelSend2
 		'
 		Me.LabelSend2.AutoSize = True
-		Me.LabelSend2.Location = New System.Drawing.Point(23, 159)
+		Me.LabelSend2.Location = New System.Drawing.Point(36, 169)
 		Me.LabelSend2.Name = "LabelSend2"
-		Me.LabelSend2.Size = New System.Drawing.Size(47, 12)
-		Me.LabelSend2.TabIndex = 9
+		Me.LabelSend2.Size = New System.Drawing.Size(58, 19)
+		Me.LabelSend2.TabIndex = 32
 		Me.LabelSend2.Text = "수신자2"
 		'
 		'LabelSend3
 		'
 		Me.LabelSend3.AutoSize = True
-		Me.LabelSend3.Location = New System.Drawing.Point(23, 196)
+		Me.LabelSend3.Location = New System.Drawing.Point(36, 200)
 		Me.LabelSend3.Name = "LabelSend3"
-		Me.LabelSend3.Size = New System.Drawing.Size(47, 12)
-		Me.LabelSend3.TabIndex = 10
+		Me.LabelSend3.Size = New System.Drawing.Size(58, 19)
+		Me.LabelSend3.TabIndex = 33
 		Me.LabelSend3.Text = "수신자3"
 		'
-		'LabelCC4
+		'LabelCC3
 		'
-		Me.LabelCC4.AutoSize = True
-		Me.LabelCC4.Location = New System.Drawing.Point(220, 123)
-		Me.LabelCC4.Name = "LabelCC4"
-		Me.LabelCC4.Size = New System.Drawing.Size(47, 12)
-		Me.LabelCC4.TabIndex = 11
-		Me.LabelCC4.Text = "참조자1"
+		Me.LabelCC3.AutoSize = True
+		Me.LabelCC3.Location = New System.Drawing.Point(203, 200)
+		Me.LabelCC3.Name = "LabelCC3"
+		Me.LabelCC3.Size = New System.Drawing.Size(58, 19)
+		Me.LabelCC3.TabIndex = 36
+		Me.LabelCC3.Text = "참조자3"
 		'
-		'LabelCC5
+		'LabelCC2
 		'
-		Me.LabelCC5.AutoSize = True
-		Me.LabelCC5.Location = New System.Drawing.Point(220, 159)
-		Me.LabelCC5.Name = "LabelCC5"
-		Me.LabelCC5.Size = New System.Drawing.Size(47, 12)
-		Me.LabelCC5.TabIndex = 12
-		Me.LabelCC5.Text = "참조자2"
+		Me.LabelCC2.AutoSize = True
+		Me.LabelCC2.Location = New System.Drawing.Point(204, 169)
+		Me.LabelCC2.Name = "LabelCC2"
+		Me.LabelCC2.Size = New System.Drawing.Size(58, 19)
+		Me.LabelCC2.TabIndex = 35
+		Me.LabelCC2.Text = "참조자2"
 		'
-		'LabelCC6
+		'LabelCC1
 		'
-		Me.LabelCC6.AutoSize = True
-		Me.LabelCC6.Location = New System.Drawing.Point(220, 196)
-		Me.LabelCC6.Name = "LabelCC6"
-		Me.LabelCC6.Size = New System.Drawing.Size(47, 12)
-		Me.LabelCC6.TabIndex = 13
-		Me.LabelCC6.Text = "참조자3"
-		'
-		'TextBoxID
-		'
-		Me.TextBoxID.Location = New System.Drawing.Point(59, 246)
-		Me.TextBoxID.Name = "TextBoxID"
-		Me.TextBoxID.Size = New System.Drawing.Size(100, 21)
-		Me.TextBoxID.TabIndex = 14
-		'
-		'TextBoxPwd
-		'
-		Me.TextBoxPwd.Location = New System.Drawing.Point(248, 246)
-		Me.TextBoxPwd.Name = "TextBoxPwd"
-		Me.TextBoxPwd.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-		Me.TextBoxPwd.Size = New System.Drawing.Size(100, 21)
-		Me.TextBoxPwd.TabIndex = 15
-		'
-		'TextBoxFile
-		'
-		Me.TextBoxFile.Location = New System.Drawing.Point(84, 289)
-		Me.TextBoxFile.Name = "TextBoxFile"
-		Me.TextBoxFile.Size = New System.Drawing.Size(227, 21)
-		Me.TextBoxFile.TabIndex = 16
+		Me.LabelCC1.AutoSize = True
+		Me.LabelCC1.Location = New System.Drawing.Point(204, 138)
+		Me.LabelCC1.Name = "LabelCC1"
+		Me.LabelCC1.Size = New System.Drawing.Size(56, 19)
+		Me.LabelCC1.TabIndex = 34
+		Me.LabelCC1.Text = "참조자1"
 		'
 		'LabelID
 		'
 		Me.LabelID.AutoSize = True
-		Me.LabelID.Location = New System.Drawing.Point(29, 249)
+		Me.LabelID.Location = New System.Drawing.Point(71, 259)
 		Me.LabelID.Name = "LabelID"
-		Me.LabelID.Size = New System.Drawing.Size(16, 12)
-		Me.LabelID.TabIndex = 17
+		Me.LabelID.Size = New System.Drawing.Size(21, 19)
+		Me.LabelID.TabIndex = 37
 		Me.LabelID.Text = "ID"
 		'
-		'LabelPwd
+		'LabelPW
 		'
-		Me.LabelPwd.AutoSize = True
-		Me.LabelPwd.Location = New System.Drawing.Point(203, 249)
-		Me.LabelPwd.Name = "LabelPwd"
-		Me.LabelPwd.Size = New System.Drawing.Size(31, 12)
-		Me.LabelPwd.TabIndex = 18
-		Me.LabelPwd.Text = "PWD"
+		Me.LabelPW.AutoSize = True
+		Me.LabelPW.Location = New System.Drawing.Point(64, 288)
+		Me.LabelPW.Name = "LabelPW"
+		Me.LabelPW.Size = New System.Drawing.Size(30, 19)
+		Me.LabelPW.TabIndex = 38
+		Me.LabelPW.Text = "PW"
 		'
 		'LabelFile
 		'
 		Me.LabelFile.AutoSize = True
-		Me.LabelFile.Location = New System.Drawing.Point(23, 292)
+		Me.LabelFile.Location = New System.Drawing.Point(29, 336)
 		Me.LabelFile.Name = "LabelFile"
-		Me.LabelFile.Size = New System.Drawing.Size(53, 12)
-		Me.LabelFile.TabIndex = 19
+		Me.LabelFile.Size = New System.Drawing.Size(65, 19)
+		Me.LabelFile.TabIndex = 39
 		Me.LabelFile.Text = "첨부파일"
-		'
-		'ButtonPath
-		'
-		Me.ButtonPath.Location = New System.Drawing.Point(322, 288)
-		Me.ButtonPath.Name = "ButtonPath"
-		Me.ButtonPath.Size = New System.Drawing.Size(26, 23)
-		Me.ButtonPath.TabIndex = 20
-		Me.ButtonPath.Text = "..."
-		Me.ButtonPath.UseVisualStyleBackColor = True
-		'
-		'LabelHost
-		'
-		Me.LabelHost.AutoSize = True
-		Me.LabelHost.Location = New System.Drawing.Point(23, 20)
-		Me.LabelHost.Name = "LabelHost"
-		Me.LabelHost.Size = New System.Drawing.Size(69, 12)
-		Me.LabelHost.TabIndex = 21
-		Me.LabelHost.Text = "SMTP Host"
 		'
 		'TextBoxHost
 		'
-		Me.TextBoxHost.Location = New System.Drawing.Point(108, 17)
+		Me.TextBoxHost.CustomBackground = True
+		Me.TextBoxHost.Location = New System.Drawing.Point(108, 27)
 		Me.TextBoxHost.Name = "TextBoxHost"
-		Me.TextBoxHost.Size = New System.Drawing.Size(240, 21)
-		Me.TextBoxHost.TabIndex = 22
-		'
-		'LabelPort
-		'
-		Me.LabelPort.AutoSize = True
-		Me.LabelPort.Location = New System.Drawing.Point(23, 56)
-		Me.LabelPort.Name = "LabelPort"
-		Me.LabelPort.Size = New System.Drawing.Size(66, 12)
-		Me.LabelPort.TabIndex = 23
-		Me.LabelPort.Text = "SMTP Port"
+		Me.TextBoxHost.Size = New System.Drawing.Size(240, 23)
+		Me.TextBoxHost.TabIndex = 40
 		'
 		'TextBoxPort
 		'
-		Me.TextBoxPort.Location = New System.Drawing.Point(108, 50)
+		Me.TextBoxPort.CustomBackground = True
+		Me.TextBoxPort.Location = New System.Drawing.Point(108, 58)
 		Me.TextBoxPort.Name = "TextBoxPort"
-		Me.TextBoxPort.Size = New System.Drawing.Size(240, 21)
-		Me.TextBoxPort.TabIndex = 24
-		Me.TextBoxPort.Text = " "
+		Me.TextBoxPort.Size = New System.Drawing.Size(240, 23)
+		Me.TextBoxPort.TabIndex = 41
 		'
-		'LabelSSL
+		'TextBoxID
 		'
-		Me.LabelSSL.AutoSize = True
-		Me.LabelSSL.Location = New System.Drawing.Point(23, 88)
-		Me.LabelSSL.Name = "LabelSSL"
-		Me.LabelSSL.Size = New System.Drawing.Size(67, 12)
-		Me.LabelSSL.TabIndex = 25
-		Me.LabelSSL.Text = "SMTP SSL"
+		Me.TextBoxID.CustomBackground = True
+		Me.TextBoxID.Location = New System.Drawing.Point(108, 255)
+		Me.TextBoxID.Name = "TextBoxID"
+		Me.TextBoxID.Size = New System.Drawing.Size(240, 23)
+		Me.TextBoxID.TabIndex = 42
+		'
+		'TextBoxPwd
+		'
+		Me.TextBoxPwd.CustomBackground = True
+		Me.TextBoxPwd.Location = New System.Drawing.Point(108, 284)
+		Me.TextBoxPwd.Name = "TextBoxPwd"
+		Me.TextBoxPwd.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+		Me.TextBoxPwd.Size = New System.Drawing.Size(240, 23)
+		Me.TextBoxPwd.TabIndex = 43
+		'
+		'TextBoxFile
+		'
+		Me.TextBoxFile.CustomBackground = True
+		Me.TextBoxFile.Location = New System.Drawing.Point(108, 332)
+		Me.TextBoxFile.Name = "TextBoxFile"
+		Me.TextBoxFile.Size = New System.Drawing.Size(208, 23)
+		Me.TextBoxFile.TabIndex = 44
+		'
+		'ComboBoxSend1
+		'
+		Me.ComboBoxSend1.FontSize = MetroFramework.MetroLinkSize.Small
+		Me.ComboBoxSend1.FormattingEnabled = True
+		Me.ComboBoxSend1.ItemHeight = 19
+		Me.ComboBoxSend1.Location = New System.Drawing.Point(108, 135)
+		Me.ComboBoxSend1.Name = "ComboBoxSend1"
+		Me.ComboBoxSend1.Size = New System.Drawing.Size(77, 25)
+		Me.ComboBoxSend1.TabIndex = 45
+		'
+		'ComboBoxSend2
+		'
+		Me.ComboBoxSend2.FontSize = MetroFramework.MetroLinkSize.Small
+		Me.ComboBoxSend2.FormattingEnabled = True
+		Me.ComboBoxSend2.ItemHeight = 19
+		Me.ComboBoxSend2.Location = New System.Drawing.Point(108, 166)
+		Me.ComboBoxSend2.Name = "ComboBoxSend2"
+		Me.ComboBoxSend2.Size = New System.Drawing.Size(77, 25)
+		Me.ComboBoxSend2.TabIndex = 46
+		'
+		'ComboBoxSend3
+		'
+		Me.ComboBoxSend3.FontSize = MetroFramework.MetroLinkSize.Small
+		Me.ComboBoxSend3.FormattingEnabled = True
+		Me.ComboBoxSend3.ItemHeight = 19
+		Me.ComboBoxSend3.Location = New System.Drawing.Point(108, 197)
+		Me.ComboBoxSend3.Name = "ComboBoxSend3"
+		Me.ComboBoxSend3.Size = New System.Drawing.Size(77, 25)
+		Me.ComboBoxSend3.TabIndex = 47
+		'
+		'ComboBoxCC1
+		'
+		Me.ComboBoxCC1.FontSize = MetroFramework.MetroLinkSize.Small
+		Me.ComboBoxCC1.FormattingEnabled = True
+		Me.ComboBoxCC1.ItemHeight = 19
+		Me.ComboBoxCC1.Location = New System.Drawing.Point(271, 135)
+		Me.ComboBoxCC1.Name = "ComboBoxCC1"
+		Me.ComboBoxCC1.Size = New System.Drawing.Size(77, 25)
+		Me.ComboBoxCC1.TabIndex = 48
+		'
+		'ComboBoxCC2
+		'
+		Me.ComboBoxCC2.FontSize = MetroFramework.MetroLinkSize.Small
+		Me.ComboBoxCC2.FormattingEnabled = True
+		Me.ComboBoxCC2.ItemHeight = 19
+		Me.ComboBoxCC2.Location = New System.Drawing.Point(271, 166)
+		Me.ComboBoxCC2.Name = "ComboBoxCC2"
+		Me.ComboBoxCC2.Size = New System.Drawing.Size(77, 25)
+		Me.ComboBoxCC2.TabIndex = 49
+		'
+		'ComboBoxCC3
+		'
+		Me.ComboBoxCC3.FontSize = MetroFramework.MetroLinkSize.Small
+		Me.ComboBoxCC3.FormattingEnabled = True
+		Me.ComboBoxCC3.ItemHeight = 19
+		Me.ComboBoxCC3.Location = New System.Drawing.Point(271, 197)
+		Me.ComboBoxCC3.Name = "ComboBoxCC3"
+		Me.ComboBoxCC3.Size = New System.Drawing.Size(77, 25)
+		Me.ComboBoxCC3.TabIndex = 50
 		'
 		'RadioButtonTrue
 		'
 		Me.RadioButtonTrue.AutoSize = True
-		Me.RadioButtonTrue.Location = New System.Drawing.Point(108, 86)
+		Me.RadioButtonTrue.Location = New System.Drawing.Point(138, 96)
 		Me.RadioButtonTrue.Name = "RadioButtonTrue"
-		Me.RadioButtonTrue.Size = New System.Drawing.Size(47, 16)
-		Me.RadioButtonTrue.TabIndex = 26
+		Me.RadioButtonTrue.Size = New System.Drawing.Size(47, 15)
+		Me.RadioButtonTrue.TabIndex = 51
 		Me.RadioButtonTrue.TabStop = True
 		Me.RadioButtonTrue.Text = "사용"
 		Me.RadioButtonTrue.UseVisualStyleBackColor = True
@@ -294,85 +277,112 @@ Partial Class Configure
 		'RadioButtonFalse
 		'
 		Me.RadioButtonFalse.AutoSize = True
-		Me.RadioButtonFalse.Location = New System.Drawing.Point(175, 86)
+		Me.RadioButtonFalse.Location = New System.Drawing.Point(257, 96)
 		Me.RadioButtonFalse.Name = "RadioButtonFalse"
-		Me.RadioButtonFalse.Size = New System.Drawing.Size(59, 16)
-		Me.RadioButtonFalse.TabIndex = 27
+		Me.RadioButtonFalse.Size = New System.Drawing.Size(59, 15)
+		Me.RadioButtonFalse.TabIndex = 52
 		Me.RadioButtonFalse.TabStop = True
 		Me.RadioButtonFalse.Text = "미사용"
 		Me.RadioButtonFalse.UseVisualStyleBackColor = True
+		'
+		'ButtonSave
+		'
+		Me.ButtonSave.Location = New System.Drawing.Point(80, 381)
+		Me.ButtonSave.Name = "ButtonSave"
+		Me.ButtonSave.Size = New System.Drawing.Size(75, 23)
+		Me.ButtonSave.TabIndex = 54
+		Me.ButtonSave.Text = "저장"
+		'
+		'ButtonPath
+		'
+		Me.ButtonPath.Location = New System.Drawing.Point(314, 332)
+		Me.ButtonPath.Name = "ButtonPath"
+		Me.ButtonPath.Size = New System.Drawing.Size(34, 23)
+		Me.ButtonPath.TabIndex = 55
+		Me.ButtonPath.Text = "선택"
+		'
+		'ButtonCancel
+		'
+		Me.ButtonCancel.Location = New System.Drawing.Point(225, 381)
+		Me.ButtonCancel.Name = "ButtonCancel"
+		Me.ButtonCancel.Size = New System.Drawing.Size(75, 23)
+		Me.ButtonCancel.TabIndex = 56
+		Me.ButtonCancel.Text = "닫기"
 		'
 		'Configure
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 12.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-		Me.ClientSize = New System.Drawing.Size(379, 382)
+		Me.BorderStyle = MetroFramework.Drawing.MetroBorderStyle.FixedSingle
+		Me.ClientSize = New System.Drawing.Size(379, 419)
+		Me.Controls.Add(Me.ButtonCancel)
+		Me.Controls.Add(Me.ButtonPath)
+		Me.Controls.Add(Me.ButtonSave)
 		Me.Controls.Add(Me.RadioButtonFalse)
 		Me.Controls.Add(Me.RadioButtonTrue)
-		Me.Controls.Add(Me.LabelSSL)
-		Me.Controls.Add(Me.TextBoxPort)
-		Me.Controls.Add(Me.LabelPort)
-		Me.Controls.Add(Me.TextBoxHost)
-		Me.Controls.Add(Me.LabelHost)
-		Me.Controls.Add(Me.ButtonPath)
-		Me.Controls.Add(Me.LabelFile)
-		Me.Controls.Add(Me.LabelPwd)
-		Me.Controls.Add(Me.LabelID)
-		Me.Controls.Add(Me.TextBoxFile)
-		Me.Controls.Add(Me.TextBoxPwd)
-		Me.Controls.Add(Me.TextBoxID)
-		Me.Controls.Add(Me.LabelCC6)
-		Me.Controls.Add(Me.LabelCC5)
-		Me.Controls.Add(Me.LabelCC4)
-		Me.Controls.Add(Me.LabelSend3)
-		Me.Controls.Add(Me.LabelSend2)
-		Me.Controls.Add(Me.LabelSend1)
 		Me.Controls.Add(Me.ComboBoxCC3)
 		Me.Controls.Add(Me.ComboBoxCC2)
 		Me.Controls.Add(Me.ComboBoxCC1)
 		Me.Controls.Add(Me.ComboBoxSend3)
 		Me.Controls.Add(Me.ComboBoxSend2)
 		Me.Controls.Add(Me.ComboBoxSend1)
-		Me.Controls.Add(Me.ButtonCancel)
-		Me.Controls.Add(Me.ButtonSave)
+		Me.Controls.Add(Me.TextBoxFile)
+		Me.Controls.Add(Me.TextBoxPwd)
+		Me.Controls.Add(Me.TextBoxID)
+		Me.Controls.Add(Me.TextBoxPort)
+		Me.Controls.Add(Me.TextBoxHost)
+		Me.Controls.Add(Me.LabelFile)
+		Me.Controls.Add(Me.LabelPW)
+		Me.Controls.Add(Me.LabelID)
+		Me.Controls.Add(Me.LabelCC3)
+		Me.Controls.Add(Me.LabelCC2)
+		Me.Controls.Add(Me.LabelCC1)
+		Me.Controls.Add(Me.LabelSend3)
+		Me.Controls.Add(Me.LabelSend2)
+		Me.Controls.Add(Me.LabelSend1)
+		Me.Controls.Add(Me.LabelSSL)
+		Me.Controls.Add(Me.LabelHost)
+		Me.Controls.Add(Me.LabelPort)
+		Me.DisplayHeader = False
 		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
 		Me.MaximizeBox = False
 		Me.Name = "Configure"
-		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+		Me.Padding = New System.Windows.Forms.Padding(20, 30, 20, 20)
+		Me.Resizable = False
+		Me.ShadowType = MetroFramework.Forms.MetroForm.MetroFormShadowType.None
 		Me.Text = "EasyReport"
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
 	End Sub
-
-	Friend WithEvents ButtonSave As Button
-    Friend WithEvents ButtonCancel As Button
-    Friend WithEvents ComboBoxSend1 As ComboBox
-    Friend WithEvents ComboBoxSend2 As ComboBox
-    Friend WithEvents ComboBoxSend3 As ComboBox
-    Friend WithEvents ComboBoxCC1 As ComboBox
-    Friend WithEvents ComboBoxCC2 As ComboBox
-    Friend WithEvents ComboBoxCC3 As ComboBox
-    Friend WithEvents LabelSend1 As Label
-    Friend WithEvents LabelSend2 As Label
-    Friend WithEvents LabelSend3 As Label
-    Friend WithEvents LabelCC4 As Label
-    Friend WithEvents LabelCC5 As Label
-    Friend WithEvents LabelCC6 As Label
-    Friend WithEvents TextBoxID As TextBox
-    Friend WithEvents TextBoxPwd As TextBox
-    Friend WithEvents TextBoxFile As TextBox
-    Friend WithEvents LabelID As Label
-    Friend WithEvents LabelPwd As Label
-    Friend WithEvents LabelFile As Label
-    Friend WithEvents ButtonPath As Button
-    Friend WithEvents OpenFileDialog1 As OpenFileDialog
-	Friend WithEvents LabelHost As Label
-	Friend WithEvents TextBoxHost As TextBox
-	Friend WithEvents LabelPort As Label
-	Friend WithEvents TextBoxPort As TextBox
-	Friend WithEvents LabelSSL As Label
-	Friend WithEvents RadioButtonTrue As RadioButton
-	Friend WithEvents RadioButtonFalse As RadioButton
+	Friend WithEvents OpenFileDialog1 As OpenFileDialog
+	Friend WithEvents LabelPort As MetroFramework.Controls.MetroLabel
+	Friend WithEvents LabelHost As MetroFramework.Controls.MetroLabel
+	Friend WithEvents LabelSSL As MetroFramework.Controls.MetroLabel
+	Friend WithEvents LabelSend1 As MetroFramework.Controls.MetroLabel
+	Friend WithEvents LabelSend2 As MetroFramework.Controls.MetroLabel
+	Friend WithEvents LabelSend3 As MetroFramework.Controls.MetroLabel
+	Friend WithEvents LabelCC3 As MetroFramework.Controls.MetroLabel
+	Friend WithEvents LabelCC2 As MetroFramework.Controls.MetroLabel
+	Friend WithEvents LabelCC1 As MetroFramework.Controls.MetroLabel
+	Friend WithEvents LabelID As MetroFramework.Controls.MetroLabel
+	Friend WithEvents LabelPW As MetroFramework.Controls.MetroLabel
+	Friend WithEvents LabelFile As MetroFramework.Controls.MetroLabel
+	Friend WithEvents TextBoxHost As MetroFramework.Controls.MetroTextBox
+	Friend WithEvents TextBoxPort As MetroFramework.Controls.MetroTextBox
+	Friend WithEvents TextBoxID As MetroFramework.Controls.MetroTextBox
+	Friend WithEvents TextBoxPwd As MetroFramework.Controls.MetroTextBox
+	Friend WithEvents TextBoxFile As MetroFramework.Controls.MetroTextBox
+	Friend WithEvents ComboBoxSend1 As MetroFramework.Controls.MetroComboBox
+	Friend WithEvents ComboBoxSend2 As MetroFramework.Controls.MetroComboBox
+	Friend WithEvents ComboBoxSend3 As MetroFramework.Controls.MetroComboBox
+	Friend WithEvents ComboBoxCC1 As MetroFramework.Controls.MetroComboBox
+	Friend WithEvents ComboBoxCC2 As MetroFramework.Controls.MetroComboBox
+	Friend WithEvents ComboBoxCC3 As MetroFramework.Controls.MetroComboBox
+	Friend WithEvents RadioButtonTrue As MetroFramework.Controls.MetroRadioButton
+	Friend WithEvents RadioButtonFalse As MetroFramework.Controls.MetroRadioButton
+	Friend WithEvents ButtonSave As MetroFramework.Controls.MetroButton
+	Friend WithEvents ButtonPath As MetroFramework.Controls.MetroButton
+	Friend WithEvents ButtonCancel As MetroFramework.Controls.MetroButton
 End Class
