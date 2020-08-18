@@ -23,6 +23,17 @@ EasyReport Development
 
 # RELEASE
 
+## EasyReport 3.1.0 RELEASE
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/50317129/90473450-ea758580-e15d-11ea-8dd9-1735627ddfd9.png" width="40%" height="40%" alt="EasyReport" title="EasyReport" />
+</p>
+
+2020.08.18 화요일
+
++ 설정파일의 비밀번호 암호화 적용
++ 보고서 내용 전체 출력 기능 추가
+
 ## EasyReport 3.0.0 RELEASE
 
 <p align="center">
