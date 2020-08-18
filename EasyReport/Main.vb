@@ -24,6 +24,7 @@ Public Class Main
 	Public AutoSendList(2) As String
 	Public AutoCCList(2) As String
 	Public AutoAttachStr As String
+	Public AutoSimpler As Boolean
 	Public AutoID As String
 	Public AutoPwd As String
 
@@ -38,6 +39,8 @@ Public Class Main
 	Public BF = 9
 	Dim i As Integer
 
+	Public encrypt As New EncryptManager(Environ("COMPUTERNAME"))
+
 	' 현재날짜 계산
 	Private Sub ButtonGetDate_Click(sender As Object, e As EventArgs) Handles ButtonGetDate.Click
 
@@ -49,7 +52,7 @@ Public Class Main
 	Private Sub TextBoxDate_LostFocus(sender As Object, e As EventArgs)
 
 		' 날짜 형식이 아니거나 빈 칸일 경우
-		If Not IsDate(TextBoxDate.Text) And Not TextBoxDate.Text = "" Then
+		If Not IsDate(TextBoxDate.Text) And Not String.IsNullOrEmpty(TextBoxDate.Text) Then
 
 			MsgBox("올바른 날짜가 아닙니다.", vbOKOnly, "Error")
 			TextBoxDate.Text = Format(Now, "yyyy-MM-dd")
@@ -119,6 +122,19 @@ Public Class Main
 
 		' 첨부파일 경로
 		AutoAttachStr = autoAttach(0).SelectSingleNode("path").InnerText
+
+		' 데이터 간단 표시
+		Dim tempSimple = autoAttach(0).SelectSingleNode("simple").InnerText
+
+		If tempSimple.ToLower() = "true" Then
+
+			AutoSimpler = True
+
+		Else
+
+			AutoSimpler = False
+
+		End If
 
 		' 계정
 		AutoID = autoAccount(0).SelectSingleNode("id").InnerText
@@ -296,9 +312,25 @@ Public Class Main
 
 						End If
 
-						If charArr(1) = "." And charArr(2) = " " Then
+						If AutoSimpler Then
 
-							xlotno += vbCrLf & "<p style=""font-family: 맑은 고딕; font-size:  14px;"">" & xworksheet.Cells(BF + i, 3).Value & "</p>" & vbCrLf
+							If charArr(1) = "." And charArr(2) = " " Then
+
+								xlotno += vbCrLf & "<p style=""font-family: 맑은 고딕; font-size:  14px;""><b>" & xworksheet.Cells(BF + i, 3).Value & "</b></p>" & vbCrLf
+
+							End If
+
+						Else
+
+							If charArr(1) = "." And charArr(2) = " " Then
+
+								xlotno += vbCrLf & "<br /><p style=""font-family: 맑은 고딕; font-size:  14px;""><b>" & xworksheet.Cells(BF + i, 3).Value & "</b></p>" & vbCrLf
+
+							Else
+
+								xlotno += vbCrLf & "<p style=""font-family: 맑은 고딕; font-size:  14px;"">" & xworksheet.Cells(BF + i, 3).Value & "</p>" & vbCrLf
+
+							End If
 
 						End If
 
@@ -546,7 +578,17 @@ Public Class Main
 		ComboBoxCC3.SelectedItem = AutoCCList(2)
 
 		TextBoxID.Text = AutoID
-		TextBoxPW.Text = AutoPwd
+
+		If String.IsNullOrEmpty(AutoPwd) Then
+
+			TextBoxPW.Text = ""
+
+		Else
+
+			TextBoxPW.Text = encrypt.DecryptData(AutoPwd)
+
+		End If
+
 		TextBoxPath.Text = AutoAttachStr
 
 	End Sub
@@ -621,6 +663,7 @@ Public Class Main
 		xml.Append("		</cc>" + vbCr)
 		xml.Append("		<attach>" + vbCr)
 		xml.Append("			<path>\\30.30.30.150\Storage_Hub\999.NAS_PORTAL\사업본부_37번_백업\개인자료\박성진\사업본부 2020 일일업무보고서 박성진.xlsm</path>" + vbCr)
+		xml.Append("			<simple>True</simple>" + vbCr)
 		xml.Append("		</attach>" + vbCr)
 		xml.Append("		<account>" + vbCr)
 		xml.Append("			<id></id>" + vbCr)

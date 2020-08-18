@@ -27,8 +27,28 @@ Public Class Configure
 		ComboBoxCC3.SelectedItem = Main.AutoCCList(2)
 
 		TextBoxID.Text = Main.AutoID
-		TextBoxPwd.Text = Main.AutoPwd
+		
+		If String.IsNullOrEmpty(Main.AutoPwd) Then
+
+			TextBoxPwd.Text = ""
+
+		Else
+
+			TextBoxPwd.Text = Main.encrypt.DecryptData(Main.AutoPwd)
+
+		End If
+
 		TextBoxFile.Text = Main.AutoAttachStr
+
+		If Main.AutoSimpler Then
+
+			RadioSimpleTrue.Checked = True
+
+		Else
+
+			RadioSimpleFalse.Checked = True
+
+		End If
 
 	End Sub
 
@@ -61,6 +81,7 @@ Public Class Configure
 				Dim nodeCC3 As XmlNode = Conf.SelectSingleNode("/descendant::data/autoset/cc/name3[.='" + Main.AutoCCList(2) + "']")
 
 				Dim nodeFile As XmlNode = Conf.SelectSingleNode("/descendant::data/autoset/attach/path[.='" + Main.AutoAttachStr + "']")
+				Dim nodeSimple As XmlNode = Conf.SelectSingleNode("/descendant::data/autoset/attach/simple[.='" + Main.AutoSimpler.ToString + "']")
 				Dim nodeID As XmlNode = Conf.SelectSingleNode("/descendant::data/autoset/account/id[.='" + Main.AutoID + "']")
 				Dim nodePwd As XmlNode = Conf.SelectSingleNode("/descendant::data/autoset/account/password[.='" + Main.AutoPwd + "']")
 
@@ -86,7 +107,17 @@ Public Class Configure
 				nodeCC3.InnerText = ComboBoxCC3.SelectedItem
 
 				nodeID.InnerText = TextBoxID.Text
-				nodePwd.InnerText = TextBoxPwd.Text
+
+				If String.IsNullOrEmpty(TextBoxPwd.Text) Then
+
+					nodePwd.InnerText = ""
+
+				Else
+
+					nodePwd.InnerText = Main.encrypt.EncryptData(TextBoxPwd.Text)
+
+				End If
+
 				nodeFile.InnerText = TextBoxFile.Text
 
 				Conf.Save(Main.Config)
@@ -118,8 +149,28 @@ Public Class Configure
 			Main.AutoCCList(1) = ComboBoxCC2.SelectedItem
 			Main.AutoCCList(2) = ComboBoxCC3.SelectedItem
 
+			If RadioSimpleTrue.Checked Then
+
+				Main.AutoSimpler = True
+
+			Else
+
+				Main.AutoSimpler = False
+
+			End If
+
 			Main.AutoID = TextBoxID.Text
-			Main.AutoPwd = TextBoxPwd.Text
+
+			If String.IsNullOrEmpty(TextBoxPwd.Text) Then
+
+				Main.AutoPwd = ""
+
+			Else
+
+				Main.AutoPwd = Main.encrypt.EncryptData(TextBoxPwd.Text)
+
+			End If
+
 			Main.AutoAttachStr = TextBoxFile.Text
 
 			MsgBox("적용 완료")
@@ -128,7 +179,7 @@ Public Class Configure
 
 		Catch ex As Exception
 
-			MsgBox("오류 발생\n" + ex.Message)
+			MsgBox("오류 발생 : " + ex.StackTrace)
 
 		End Try
 
@@ -156,4 +207,5 @@ Public Class Configure
 		End If
 
 	End Sub
+
 End Class
