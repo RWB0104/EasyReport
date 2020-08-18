@@ -81,6 +81,26 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  System.Byte[] 형식의 지역화된 리소스를 찾습니다.
+        '''</summary>
+        Friend ReadOnly Property MetroFramework() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MetroFramework", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  System.Byte[] 형식의 지역화된 리소스를 찾습니다.
+        '''</summary>
+        Friend ReadOnly Property MetroFramework_Fonts() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MetroFramework_Fonts", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
         '''  System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         '''</summary>
         Friend ReadOnly Property 계정() As System.Drawing.Bitmap

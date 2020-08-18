@@ -73,18 +73,15 @@
     <ApplicationIcon>EasyReport.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BCrypt.Net, Version=0.1.4141.31969, Culture=neutral, PublicKeyToken=f3bc8f8c31beeb49, processorArchitecture=MSIL">
-      <HintPath>..\packages\BCrypt.Net.0.1.0\lib\net35\BCrypt.Net.dll</HintPath>
-    </Reference>
     <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
-      <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="MetroFramework.Design, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
-      <HintPath>..\packages\MetroFramework.Design.1.2.0.3\lib\net40\MetroFramework.Design.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\MetroFramework.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MetroFramework.Fonts, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
-      <HintPath>..\packages\MetroFramework.Fonts.1.2.0.3\lib\net40\MetroFramework.Fonts.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\MetroFramework.Fonts.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -112,6 +109,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Configure.Designer.vb">
       <DependentUpon>Configure.vb</DependentUpon>
     </Compile>
@@ -235,8 +233,11 @@
     <None Include="Resources\Form_Logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Release\MetroFramework.dll" />
+    <None Include="bin\Release\MetroFramework.Fonts.dll" />
     <Content Include="EasyReport.ico" />
-    <Content Include="MetroFramework.txt" />
+    <None Include="MetroFramework.dll" />
+    <None Include="MetroFramework.Fonts.dll" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.3\analyzers\dotnet\Microsoft.CodeAnalysis.VersionCheckAnalyzer.dll" />

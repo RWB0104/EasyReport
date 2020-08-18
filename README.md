@@ -23,6 +23,12 @@ EasyReport Development
 
 # RELEASE
 
+## EasyReport 3.1.1 RELEASE
+
+2020.08.18 화요일
+
++ DLL 파일 포함 빌드
+
 ## EasyReport 3.1.0 RELEASE
 
 <p align="center">
