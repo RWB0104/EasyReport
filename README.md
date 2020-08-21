@@ -27,6 +27,7 @@ EasyReport Development
 
 2020.08.21 금요일
 
++ 비밀번호 암호화 기능 추가
 + 버전 표시 추가
 + Github 저장소 링크 추가
 + 설정파일 SMTP SSL 기본값 False로 변경 (비즈메카는 SSL을 지원하지 않음)
