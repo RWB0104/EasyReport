@@ -646,7 +646,7 @@ Public Class Main
 		xml.Append("	<mail>" + vbCr)
 		xml.Append("		<host>gwm.bizmeka.com</host>" + vbCr)
 		xml.Append("		<port>587</port>" + vbCr)
-		xml.Append("		<ssl>True</ssl>" + vbCr)
+		xml.Append("		<ssl>False</ssl>" + vbCr)
 		xml.Append("	</mail>" + vbCr)
 		xml.Append("	<autoset>" + vbCr)
 		xml.Append("		<send>" + vbCr)
@@ -757,6 +757,12 @@ Public Class Main
 	Private Sub ButtonDownload_Click(sender As Object, e As EventArgs) Handles ButtonDownload.Click
 
 		Process.Start("https://github.com/RWB0104/EasyReport/raw/master/Documents/%EC%9D%BC%EC%9D%BC%EC%97%85%EB%AC%B4%EB%B3%B4%EA%B3%A0%EC%84%9C.xlsm")
+
+	End Sub
+
+	Private Sub LabelDev_Click(sender As Object, e As EventArgs) Handles LabelDev.Click
+
+		Process.Start("https://github.com/RWB0104/EasyReport")
 
 	End Sub
 

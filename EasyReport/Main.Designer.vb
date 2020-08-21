@@ -43,7 +43,6 @@ Partial Class Main
 		Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
 		Me.LabelWork = New System.Windows.Forms.Label()
 		Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-		Me.LabelDev = New System.Windows.Forms.Label()
 		Me.ButtonGetDate = New MetroFramework.Controls.MetroButton()
 		Me.TextBoxDate = New MetroFramework.Controls.MetroTextBox()
 		Me.GroupBoxCC = New System.Windows.Forms.GroupBox()
@@ -63,6 +62,8 @@ Partial Class Main
 		Me.ProgressBar1 = New MetroFramework.Controls.MetroProgressBar()
 		Me.MetroStyleManager1 = New MetroFramework.Components.MetroStyleManager(Me.components)
 		Me.ButtonDownload = New MetroFramework.Controls.MetroButton()
+		Me.LabelDev = New MetroFramework.Controls.MetroLink()
+		Me.LavelVersion = New MetroFramework.Controls.MetroLabel()
 		Me.GroupBoxSend.SuspendLayout()
 		Me.GroupBoxText.SuspendLayout()
 		Me.GroupBoxGmail.SuspendLayout()
@@ -246,16 +247,6 @@ Partial Class Main
 		Me.PictureBox1.TabIndex = 28
 		Me.PictureBox1.TabStop = False
 		'
-		'LabelDev
-		'
-		Me.LabelDev.AutoSize = True
-		Me.LabelDev.Font = New System.Drawing.Font("맑은 고딕", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-		Me.LabelDev.Location = New System.Drawing.Point(234, 540)
-		Me.LabelDev.Name = "LabelDev"
-		Me.LabelDev.Size = New System.Drawing.Size(110, 15)
-		Me.LabelDev.TabIndex = 37
-		Me.LabelDev.Text = "Developed by RWB"
-		'
 		'ButtonGetDate
 		'
 		Me.ButtonGetDate.Location = New System.Drawing.Point(19, 68)
@@ -424,12 +415,34 @@ Partial Class Main
 		Me.ButtonDownload.TabIndex = 55
 		Me.ButtonDownload.Text = "보고서 양식"
 		'
+		'LabelDev
+		'
+		Me.LabelDev.FontWeight = MetroFramework.MetroLinkWeight.Regular
+		Me.LabelDev.Location = New System.Drawing.Point(233, 537)
+		Me.LabelDev.Name = "LabelDev"
+		Me.LabelDev.Size = New System.Drawing.Size(122, 23)
+		Me.LabelDev.Style = MetroFramework.MetroColorStyle.Teal
+		Me.LabelDev.TabIndex = 57
+		Me.LabelDev.Text = "Developed by RWB"
+		Me.LabelDev.UseStyleColors = True
+		'
+		'LavelVersion
+		'
+		Me.LavelVersion.AutoSize = True
+		Me.LavelVersion.Location = New System.Drawing.Point(140, 31)
+		Me.LavelVersion.Name = "LavelVersion"
+		Me.LavelVersion.Size = New System.Drawing.Size(40, 19)
+		Me.LavelVersion.TabIndex = 58
+		Me.LavelVersion.Text = "v3.1.2"
+		'
 		'Main
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 12.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
 		Me.ClientSize = New System.Drawing.Size(581, 569)
+		Me.Controls.Add(Me.LavelVersion)
+		Me.Controls.Add(Me.LabelDev)
 		Me.Controls.Add(Me.ButtonDownload)
 		Me.Controls.Add(Me.ProgressBar1)
 		Me.Controls.Add(Me.ButtonCls)
@@ -442,7 +455,6 @@ Partial Class Main
 		Me.Controls.Add(Me.GroupBoxCC)
 		Me.Controls.Add(Me.TextBoxDate)
 		Me.Controls.Add(Me.ButtonGetDate)
-		Me.Controls.Add(Me.LabelDev)
 		Me.Controls.Add(Me.PictureBox1)
 		Me.Controls.Add(Me.LabelWork)
 		Me.Controls.Add(Me.GroupBoxGmail)
@@ -473,7 +485,6 @@ Partial Class Main
 	Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
 	Friend WithEvents LabelWork As Label
 	Friend WithEvents PictureBox1 As PictureBox
-	Friend WithEvents LabelDev As Label
 	Friend WithEvents ButtonGetDate As MetroFramework.Controls.MetroButton
 	Friend WithEvents TextBoxDate As MetroFramework.Controls.MetroTextBox
 	Friend WithEvents ComboBoxSend1 As MetroFramework.Controls.MetroComboBox
@@ -503,4 +514,6 @@ Partial Class Main
 	Friend WithEvents ProgressBar1 As MetroFramework.Controls.MetroProgressBar
 	Public WithEvents MetroStyleManager1 As MetroFramework.Components.MetroStyleManager
 	Friend WithEvents ButtonDownload As MetroFramework.Controls.MetroButton
+	Friend WithEvents LabelDev As MetroFramework.Controls.MetroLink
+	Friend WithEvents LavelVersion As MetroFramework.Controls.MetroLabel
 End Class
